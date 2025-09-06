@@ -43,14 +43,14 @@ class EntrysFragment : Fragment(), View.OnClickListener {
      override fun onCreateContextMenu (menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo? ){
         val entry = v.getTag(R.id.theEntry) as DiaryEntry
 
-        menu.add(Menu.NONE, MenuItems.EDIT, Menu.NONE, "Edit").setOnMenuItemClickListener {
+        menu.add(Menu.NONE, CardViewContextMenuItems.EDIT, Menu.NONE, "Edit").setOnMenuItemClickListener {
             findNavController().navigate(
                 EntrysFragmentDirections.actionEntrysFragmentToEditFragment(entry)
             )
             true
         }
 
-        menu.add(Menu.NONE, MenuItems.DELETE, Menu.NONE, "Delete").setOnMenuItemClickListener {
+        menu.add(Menu.NONE, CardViewContextMenuItems.DELETE, Menu.NONE, "Delete").setOnMenuItemClickListener {
             viewModel?.deleteDiaryEntry(entry)
             true
         }

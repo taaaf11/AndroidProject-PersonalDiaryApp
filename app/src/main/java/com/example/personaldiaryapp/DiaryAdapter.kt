@@ -2,13 +2,10 @@ package com.example.personaldiaryapp
 
 import android.app.Activity
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.TextView
-import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.example.personaldiaryapp.room.DiaryEntry
 import com.example.personaldiaryapp.room.DiaryVM
@@ -23,8 +20,7 @@ class DiaryAdapter(
     var viewDetailLambda: ((DiaryEntry) -> Unit)? = null
     var popupMenuShowerLambda: ((View) -> Boolean)? = null
 
-    private var searcherEditText: EditText? = null
-    private var viewModel: DiaryVM? = null
+    var viewModel: DiaryVM? = null
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val tvTitle = view.findViewById<TextView>(R.id.tvDiaryEntryTitle_layout_card_view)
@@ -70,7 +66,6 @@ class DiaryAdapter(
         // holder.itemView.context is the activity
         (holder.itemView.context as? Activity)?.registerForContextMenu(holder.itemView)
 
-
         holder.itemView.setOnClickListener {
             viewDetailLambda?.invoke(entry)
         }
@@ -86,55 +81,21 @@ class DiaryAdapter(
         notifyDataSetChanged()
     }
 
-    fun setSearchingRequirements(vm: DiaryVM?, et: EditText?) {
-        this.viewModel = vm
-        this.searcherEditText = et
+    fun setSearchQueries(titleQuery: String, contentQuery: String) {
+        val allDiaryEntrys = viewModel?.readAllDiaryEntrys?.value
+        require(allDiaryEntrys != null) { "The viewModel is still null" }
 
-        searcherEditText?.addTextChangedListener { editable ->
-//            Log.i("text changed", "TEXT CHANGE")
+        val filteredDiaryEntrys = mutableListOf<DiaryEntry>()
 
-            var allDiaryEntrys = viewModel?.readAllDiaryEntrys?.value
-            if (allDiaryEntrys == null) {
-                Log.i("Null check", "ViewModel passed to DiaryAdapter is yielding null")
+        allDiaryEntrys.forEach { diaryEntry ->
+            if (titleQuery in diaryEntry.title &&
+                contentQuery in diaryEntry.content
+                ) {
+                filteredDiaryEntrys.add(diaryEntry)
             }
-
-            allDiaryEntrys = allDiaryEntrys!!
-
-            val searchQuery = editable.toString()
-            val filteredDiaryEntrys = mutableListOf<DiaryEntry>()
-
-            allDiaryEntrys.forEach { diaryEntry ->
-                if (searchQuery in diaryEntry.content) {
-                    filteredDiaryEntrys.add(diaryEntry)
-                }
-            }
-
-            this.listDiaryEntrys = filteredDiaryEntrys
-            notifyDataSetChanged()
         }
-    }
-}
 
-
-class MenuItems(val entry: DiaryEntry, val value: Int) {
-
-    companion object {
-        val EDIT = 1
-        val DELETE = 2
-        val VIEW = 3
-    }
-//
-//    fun getValue(diaryEntry: DiaryEntry, valueName: String): Int {
-//        this.diaryEntry = diaryEntry
-//        return when (valueName) {
-//            "EDIT" -> 1
-//            "DELETE" -> 2
-//            "VIEW" -> 3
-//            else -> -1
-//        }
-//    }
-
-    fun toInt(): Int {
-        return this.value
+        this.listDiaryEntrys = filteredDiaryEntrys
+        notifyDataSetChanged()
     }
 }

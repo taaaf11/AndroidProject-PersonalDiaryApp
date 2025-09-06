@@ -20,6 +20,10 @@ class SearchFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentSearchBinding? = null
     val binding get() = _binding
     var viewModel: DiaryVM? = null
+    var adapter: DiaryAdapter? = null
+
+    private var titleQueryValue: String? = null
+    private var contentQueryValue: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +43,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initialize() {
-        val adapter = DiaryAdapter(requireContext())
+        adapter = DiaryAdapter(requireContext())
         binding?.rvEntrysListFragmentSearch?.adapter = adapter
         binding?.rvEntrysListFragmentSearch?.layoutManager = LinearLayoutManager(requireContext())
 
@@ -49,11 +53,12 @@ class SearchFragment : Fragment(), View.OnClickListener {
         // give viewModel and value searching editText component
         // so that the list can be filtered when the search query
         // is changed
-        adapter.setSearchingRequirements(viewModel, binding?.etSearchValueFragmentSearch)
+        adapter?.viewModel = viewModel
+//        adapter?.setSearchingRequirements(viewModel, binding?.etSearchValueFragmentSearch)
 
         // this is called when the view i.e. the cardView is clicked
         // this will be called inside the setOnClickListener of the cardView
-        adapter.viewDetailLambda = {
+        adapter?.viewDetailLambda = {
             findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToDetailsFragment(
                 it
             ))
@@ -61,7 +66,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
         // this is called when the view i.e. the cardView is long-clicked
         // this will be called inside the setOnLongClickListener of the cardView
-        adapter.popupMenuShowerLambda = {
+        adapter?.popupMenuShowerLambda = {
             registerForContextMenu(it)
             requireActivity().openContextMenu(it)
             true
@@ -73,7 +78,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
         // the setData function calls the notifyDataSetChanged ,
         // which then rebuilds the recyclerView's list.
         viewModel?.readAllDiaryEntrys?.observe(viewLifecycleOwner) { notes ->
-            adapter.setData(notes)
+            adapter?.setData(notes)
         }
     }
 
@@ -81,14 +86,14 @@ class SearchFragment : Fragment(), View.OnClickListener {
     override fun onCreateContextMenu (menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo? ){
         val entry = v.getTag(R.id.theEntry) as DiaryEntry
 
-        menu.add(Menu.NONE, MenuItems.EDIT, Menu.NONE, "Edit").setOnMenuItemClickListener {
+        menu.add(Menu.NONE, CardViewContextMenuItems.EDIT, Menu.NONE, "Edit").setOnMenuItemClickListener {
             findNavController().navigate(EntrysFragmentDirections.actionEntrysFragmentToEditFragment(
                 entry
             ))
             true
         }
 
-        menu.add(Menu.NONE, MenuItems.DELETE, Menu.NONE, "Delete").setOnMenuItemClickListener {
+        menu.add(Menu.NONE, CardViewContextMenuItems.DELETE, Menu.NONE, "Delete").setOnMenuItemClickListener {
             viewModel?.deleteDiaryEntry(entry)
             true
         }
@@ -96,12 +101,26 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
     private fun registerClicks() {
         binding?.ivBackButtonFragmentSearch?.setOnClickListener(this)
+        binding?.ivSetFiltersFragmentSearch?.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.ivBackButtonFragmentSearch -> {
                 findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToEntrysFragment())
+            }
+
+            R.id.ivSetFiltersFragmentSearch -> {
+                val dialog = SetSearchFilterDialogFragment()
+                dialog.show(parentFragmentManager, "")
+                dialog.valueGetterLambda = { titleQuery, contentQuery ->
+                    titleQueryValue = titleQuery
+                    contentQueryValue = contentQuery
+
+//                    Log.i("TAG", "$titleQueryValue, $contentQueryValue")
+
+                    adapter?.setSearchQueries(titleQuery!!, contentQuery!!)
+                }
             }
         }
     }
