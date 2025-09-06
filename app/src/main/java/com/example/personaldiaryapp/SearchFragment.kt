@@ -16,7 +16,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentSearchBinding? = null
     val binding get() = _binding
     var viewModel: DiaryVM? = null
-    private var adapter: DiarySearchAdapter? = null
+    private var adapter: DiaryAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,10 +37,11 @@ class SearchFragment : Fragment(), View.OnClickListener {
 
     private fun initialize() {
         binding?.rvEntrysListFragmentSearch?.layoutManager = LinearLayoutManager(requireContext())
-        adapter = DiarySearchAdapter(
-            requireContext(), binding?.etSearchValueFragmentSearch, viewModel
-        )
+
+        adapter = DiaryAdapter(requireContext())
         binding?.rvEntrysListFragmentSearch?.adapter = adapter
+
+        adapter?.setSearchingRequirements(viewModel, binding?.etSearchValueFragmentSearch)
 
         adapter?.viewDetailLambda = {
             findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToDetailsFragment(
