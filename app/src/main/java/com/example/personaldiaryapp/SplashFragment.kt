@@ -38,32 +38,7 @@ class SplashFragment : Fragment(), View.OnClickListener {
         registerClicks()
     }
 
-    // when i want to insert some data using @Query, i want it such that if a row already exists, it updates that row, and if the row does not exist, it
-    private fun initialize() {
-//        fun getColorFromResources(id: Int): Int {
-//            return ContextCompat.getColor(requireContext(), id)
-//        }
-//
-//        viewModel?.getThemeMode?.observe(viewLifecycleOwner) { isLightThemeInDb ->
-//            if (isLightThemeInDb == null) {
-//                viewModel?.setDefaultSettings()
-//                Log.i("HERE", "Settin defaults")
-//            }
-//
-//            val isLightTheme = isLightThemeInDb ?: true
-//            if (isLightTheme) {
-//                binding?.rootLayoutFragmentSplash?.setBackgroundColor(
-//                    getColorFromResources(R.color.background)
-//                )
-//
-//            }
-//            else {
-//                binding?.rootLayoutFragmentSplash?.setBackgroundColor(
-//                    getColorFromResources(R.color.backgroundDark)
-//                )
-//            }
-//        }
-    }
+    private fun initialize() {}
 
     private fun registerClicks() {
         binding?.btnGoFragmentSplash?.setOnClickListener(this)

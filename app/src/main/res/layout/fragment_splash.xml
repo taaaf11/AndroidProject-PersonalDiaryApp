@@ -9,19 +9,6 @@
     tools:context=".SplashFragment">
 
     <ImageView
-        android:id="@+id/ivSettingsBtnFragmentSplash"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-
-        android:src="@drawable/cog_icon"
-        app:tint="@color/primary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        />
-
-    <ImageView
         android:id="@+id/ivLogoFragmentSplash"
         android:layout_width="150dp"
         android:layout_height="150dp"
