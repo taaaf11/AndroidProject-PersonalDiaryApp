@@ -8,6 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.personaldiaryapp.room.DiaryEntry
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class DiaryAdapter(
     val context:Context,
@@ -24,6 +27,7 @@ class DiaryAdapter(
         val ivViewEntry = view.findViewById<ImageView>(R.id.ivDiaryEntryViewDetailsLayoutCardView)
         val ivDeleteEntry = view.findViewById<ImageView>(R.id.ivDiaryEntryDeleteEntryLayoutCardView)
         val ivEditEntry = view.findViewById<ImageView>(R.id.ivDiaryEntryEditEntryLayoutCardView)
+        val tvDateValue = view.findViewById<TextView>(R.id.tvDateValue_layout_card_view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,6 +47,11 @@ class DiaryAdapter(
             content = content.slice(0..10) + "..."
         }
         holder.tvContent.text = content
+
+        val entryCreationTimeFormatter = SimpleDateFormat("MMM d, yyyy · h:mm a", Locale.getDefault())
+
+        holder.tvDateValue.text = entryCreationTimeFormatter.format(entry.dateCreated)
+
         holder.ivViewEntry.setOnClickListener{
             viewDetailLambda?.invoke(entry)
         }
@@ -52,6 +61,7 @@ class DiaryAdapter(
         holder.ivEditEntry.setOnClickListener {
             editEntryLambda?.invoke(entry)
         }
+
 //                                .split(" ")
 //                                .slice(1..4)
 //                                .joinToString(separator = " ")

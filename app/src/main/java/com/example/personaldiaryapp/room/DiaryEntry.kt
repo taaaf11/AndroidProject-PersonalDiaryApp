@@ -12,6 +12,8 @@ import androidx.room.PrimaryKey
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.parcelize.Parcelize
+import java.time.LocalDateTime
+import java.util.Date
 
 @Parcelize
 @Entity(
@@ -29,6 +31,7 @@ data class DiaryEntry(
     var diaryEntryId: Int,
     var title: String,
     var content: String,
+    var dateCreated: Date = Date()
 //    val userCreatorId: Long
 ): Parcelable
 

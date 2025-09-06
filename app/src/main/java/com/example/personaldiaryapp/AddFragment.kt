@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.personaldiaryapp.databinding.FragmentAddBinding
 import com.example.personaldiaryapp.room.DiaryEntry
 import com.example.personaldiaryapp.room.DiaryVM
+import java.time.LocalDateTime
+import java.time.ZoneId
 
 
 class AddFragment : Fragment(), View.OnClickListener {
