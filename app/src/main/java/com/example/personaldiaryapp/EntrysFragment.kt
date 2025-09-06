@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.personaldiaryapp.databinding.FragmentEntrysBinding
 import com.example.personaldiaryapp.room.DiaryVM
@@ -37,6 +38,7 @@ class EntrysFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initialize() {
+        binding?.rvEntrysList?.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
         binding?.rvEntrysList?.layoutManager = LinearLayoutManager(requireContext())
         val adapter = DiaryAdapter(requireContext())
         binding?.rvEntrysList?.adapter = adapter

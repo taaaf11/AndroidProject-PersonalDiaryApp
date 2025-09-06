@@ -27,31 +27,6 @@ class DiaryAdapter(
     private var searcherEditText: EditText? = null
     private var viewModel: DiaryVM? = null
 
-//    init {
-//        searcherEditText?.addTextChangedListener { editable ->
-////            Log.i("text changed", "TEXT CHANGE")
-//
-//            var allDiaryEntrys = viewModel?.readAllDiaryEntrys?.value
-//            if (allDiaryEntrys == null) {
-//                Log.i("Null check", "ViewModel passed to DiarySearchAdapter is yielding null")
-//            }
-//
-//            allDiaryEntrys = allDiaryEntrys!!
-//
-//            val searchQuery = editable.toString()
-//            val filteredDiaryEntrys = mutableListOf<DiaryEntry>()
-//
-//            allDiaryEntrys.forEach { diaryEntry ->
-//                if (searchQuery in diaryEntry.content) {
-//                    filteredDiaryEntrys.add(diaryEntry)
-//                }
-//            }
-//
-//            this.listDiaryEntrys = filteredDiaryEntrys
-//            notifyDataSetChanged()
-//        }
-//    }
-
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val tvTitle = view.findViewById<TextView>(R.id.tvDiaryEntryTitle_layout_card_view)
         val tvContent = view.findViewById<TextView>(R.id.tvDiaryEntryContent_layout_card_view)
