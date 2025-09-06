@@ -39,13 +39,14 @@ class EntrysFragment : Fragment(), View.OnClickListener {
         registerClicks()
     }
 
+     // source: https://stackoverflow.com/a/44384149/19619895
      override fun onCreateContextMenu (menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo? ){
         val entry = v.getTag(R.id.theEntry) as DiaryEntry
 
         menu.add(Menu.NONE, MenuItems.EDIT, Menu.NONE, "Edit").setOnMenuItemClickListener {
-            findNavController().navigate(EntrysFragmentDirections.actionEntrysFragmentToEditFragment(
-                entry
-            ))
+            findNavController().navigate(
+                EntrysFragmentDirections.actionEntrysFragmentToEditFragment(entry)
+            )
             true
         }
 
@@ -56,23 +57,34 @@ class EntrysFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initialize() {
-        binding?.rvEntrysList?.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
-        binding?.rvEntrysList?.layoutManager = LinearLayoutManager(requireContext())
         val adapter = DiaryAdapter(requireContext())
         binding?.rvEntrysList?.adapter = adapter
+        binding?.rvEntrysList?.layoutManager = LinearLayoutManager(requireContext())
 
+        // source: https://stackoverflow.com/a/57886251/19619895
+        binding?.rvEntrysList?.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
+
+        // this is called when the view i.e. the cardView is clicked
+        // this will be called inside the setOnClickListener of the cardView
         adapter.viewDetailLambda = {
-            findNavController().navigate(EntrysFragmentDirections.actionEntrysFragmentToDetailsFragment(
-                it
-            ))
+            findNavController().navigate(
+                EntrysFragmentDirections.actionEntrysFragmentToDetailsFragment(it)
+            )
         }
 
+        // this is called when the view i.e. the cardView is long-clicked
+        // this will be called inside the setOnLongClickListener of the cardView
         adapter.popupMenuShowerLambda = {
             registerForContextMenu(it)
             requireActivity().openContextMenu(it)
             true
         }
 
+        // this block creates an "observer", meaning that whenever
+        // the dataset changes, this block will be called.
+        // inside the block, we are calling adapter?.setData(notes)
+        // the setData function calls the notifyDataSetChanged ,
+        // which then rebuilds the recyclerView's list.
         viewModel?.readAllDiaryEntrys?.observe(viewLifecycleOwner) { notes ->
             adapter.setData(notes)
         }
@@ -87,13 +99,19 @@ class EntrysFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.ivBackButtonFragmentEntrys -> {
-                findNavController().navigate(EntrysFragmentDirections.actionEntrysFragmentToHomeFragment())
+                findNavController().navigate(
+                    EntrysFragmentDirections.actionEntrysFragmentToHomeFragment()
+                )
             }
             R.id.ivSearchButtonFragmentEntrys -> {
-                findNavController().navigate(EntrysFragmentDirections.actionEntrysFragmentToSearchFragment())
+                findNavController().navigate(
+                    EntrysFragmentDirections.actionEntrysFragmentToSearchFragment()
+                )
             }
             R.id.btnAddEntry_fragment_entrys -> {
-                findNavController().navigate(EntrysFragmentDirections.actionEntrysFragmentToAddFragment())
+                findNavController().navigate(
+                    EntrysFragmentDirections.actionEntrysFragmentToAddFragment()
+                )
             }
         }
     }

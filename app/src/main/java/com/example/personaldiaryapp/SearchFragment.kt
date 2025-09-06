@@ -20,7 +20,6 @@ class SearchFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentSearchBinding? = null
     val binding get() = _binding
     var viewModel: DiaryVM? = null
-    private var adapter: DiaryAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,40 +39,45 @@ class SearchFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initialize() {
-        binding?.rvEntrysListFragmentSearch?.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
+        val adapter = DiaryAdapter(requireContext())
+        binding?.rvEntrysListFragmentSearch?.adapter = adapter
         binding?.rvEntrysListFragmentSearch?.layoutManager = LinearLayoutManager(requireContext())
 
-        adapter = DiaryAdapter(requireContext())
-        binding?.rvEntrysListFragmentSearch?.adapter = adapter
+        // source: https://stackoverflow.com/a/57886251/19619895
+        binding?.rvEntrysListFragmentSearch?.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
 
-        adapter?.setSearchingRequirements(viewModel, binding?.etSearchValueFragmentSearch)
+        // give viewModel and value searching editText component
+        // so that the list can be filtered when the search query
+        // is changed
+        adapter.setSearchingRequirements(viewModel, binding?.etSearchValueFragmentSearch)
 
-        adapter?.viewDetailLambda = {
+        // this is called when the view i.e. the cardView is clicked
+        // this will be called inside the setOnClickListener of the cardView
+        adapter.viewDetailLambda = {
             findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToDetailsFragment(
                 it
             ))
         }
 
-        adapter?.popupMenuShowerLambda = {
+        // this is called when the view i.e. the cardView is long-clicked
+        // this will be called inside the setOnLongClickListener of the cardView
+        adapter.popupMenuShowerLambda = {
             registerForContextMenu(it)
             requireActivity().openContextMenu(it)
             true
         }
-//        adapter?.deleteEntryLambda = {
-//            viewModel?.deleteDiaryEntry(it)
-//
-//        }
-//        adapter?.editEntryLambda = {
-//            findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToEditFragment(
-//                it
-//            ))
-//        }
 
+        // this block creates an "observer", meaning that whenever
+        // the dataset changes, this block will be called.
+        // inside the block, we are calling adapter?.setData(notes)
+        // the setData function calls the notifyDataSetChanged ,
+        // which then rebuilds the recyclerView's list.
         viewModel?.readAllDiaryEntrys?.observe(viewLifecycleOwner) { notes ->
-            adapter?.setData(notes)
+            adapter.setData(notes)
         }
     }
 
+    // source: https://stackoverflow.com/a/44384149/19619895
     override fun onCreateContextMenu (menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo? ){
         val entry = v.getTag(R.id.theEntry) as DiaryEntry
 
