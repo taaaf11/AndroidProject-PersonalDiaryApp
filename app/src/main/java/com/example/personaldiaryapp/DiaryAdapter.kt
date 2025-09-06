@@ -1,12 +1,12 @@
 package com.example.personaldiaryapp
 
+import android.app.Activity
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
@@ -21,8 +21,7 @@ class DiaryAdapter(
 
     private var listDiaryEntrys = emptyList<DiaryEntry>()
     var viewDetailLambda: ((DiaryEntry) -> Unit)? = null
-    var deleteEntryLambda: ((DiaryEntry) -> Unit)? = null
-    var editEntryLambda: ((DiaryEntry) -> Unit)? = null
+    var popupMenuShowerLambda: ((View) -> Boolean)? = null
 
     private var searcherEditText: EditText? = null
     private var viewModel: DiaryVM? = null
@@ -30,14 +29,12 @@ class DiaryAdapter(
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val tvTitle = view.findViewById<TextView>(R.id.tvDiaryEntryTitle_layout_card_view)
         val tvContent = view.findViewById<TextView>(R.id.tvDiaryEntryContent_layout_card_view)
-        val ivViewEntry = view.findViewById<ImageView>(R.id.ivDiaryEntryViewDetailsLayoutCardView)
-        val ivDeleteEntry = view.findViewById<ImageView>(R.id.ivDiaryEntryDeleteEntryLayoutCardView)
-        val ivEditEntry = view.findViewById<ImageView>(R.id.ivDiaryEntryEditEntryLayoutCardView)
         val tvDateValue = view.findViewById<TextView>(R.id.tvDateValue_layout_card_view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.card_view,parent, false)
+
         return ViewHolder(view)
     }
 
@@ -47,45 +44,46 @@ class DiaryAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val entry = listDiaryEntrys[position]
+
+        // setting the title textview
         holder.tvTitle.text = entry.title
+
+        // setting the content textview
         var content = entry.content
         if (content.length >= 10) {
             content = content.slice(0..10) + "..."
         }
         holder.tvContent.text = content
 
+        // setting the date value to a pretty format
         val entryCreationTimeFormatter = SimpleDateFormat("MMM d, yyyy · h:mm a", Locale.getDefault())
-
         holder.tvDateValue.text = entryCreationTimeFormatter.format(entry.dateCreated)
 
-        holder.ivViewEntry.setOnClickListener{
+        // setTag is used to embed extra information into
+        // the view i.e. the cardview
+        // this id (R.id.theEntry) is given in ids.xml
+        holder.itemView.setTag(R.id.theEntry, entry)
+
+        // got from chatgpt
+        // this code registers the cardview to show the context menu
+        // holder.itemView is the card
+        // holder.itemView.context is the activity
+        (holder.itemView.context as? Activity)?.registerForContextMenu(holder.itemView)
+
+
+        holder.itemView.setOnClickListener {
             viewDetailLambda?.invoke(entry)
         }
-        holder.ivDeleteEntry.setOnClickListener {
-            deleteEntryLambda?.invoke(entry)
+        holder.itemView.setOnLongClickListener {
+            popupMenuShowerLambda?.invoke(it)
+            true
         }
-        holder.ivEditEntry.setOnClickListener {
-            editEntryLambda?.invoke(entry)
-        }
-
-//                                .split(" ")
-//                                .slice(1..4)
-//                                .joinToString(separator = " ")
-
     }
 
     @SuppressWarnings("NotifyDataSetChanged")
     fun setData(data: List<DiaryEntry>) {
         this.listDiaryEntrys = data
         notifyDataSetChanged()
-    }
-
-    fun setViewModel(vm: DiaryVM?) {
-        this.viewModel = vm
-    }
-
-    fun setSearcherEditText(et: EditText?) {
-        this.searcherEditText = et
     }
 
     fun setSearchingRequirements(vm: DiaryVM?, et: EditText?) {
@@ -114,5 +112,29 @@ class DiaryAdapter(
             this.listDiaryEntrys = filteredDiaryEntrys
             notifyDataSetChanged()
         }
+    }
+}
+
+
+class MenuItems(val entry: DiaryEntry, val value: Int) {
+
+    companion object {
+        val EDIT = 1
+        val DELETE = 2
+        val VIEW = 3
+    }
+//
+//    fun getValue(diaryEntry: DiaryEntry, valueName: String): Int {
+//        this.diaryEntry = diaryEntry
+//        return when (valueName) {
+//            "EDIT" -> 1
+//            "DELETE" -> 2
+//            "VIEW" -> 3
+//            else -> -1
+//        }
+//    }
+
+    fun toInt(): Int {
+        return this.value
     }
 }

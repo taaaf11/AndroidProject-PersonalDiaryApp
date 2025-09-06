@@ -1,9 +1,10 @@
 package com.example.personaldiaryapp
 
 import android.os.Bundle
-import android.util.Log
+import android.view.ContextMenu
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.personaldiaryapp.databinding.FragmentEntrysBinding
+import com.example.personaldiaryapp.room.DiaryEntry
 import com.example.personaldiaryapp.room.DiaryVM
 
 
@@ -37,6 +39,22 @@ class EntrysFragment : Fragment(), View.OnClickListener {
         registerClicks()
     }
 
+     override fun onCreateContextMenu (menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo? ){
+        val entry = v.getTag(R.id.theEntry) as DiaryEntry
+
+        menu.add(Menu.NONE, MenuItems.EDIT, Menu.NONE, "Edit").setOnMenuItemClickListener {
+            findNavController().navigate(EntrysFragmentDirections.actionEntrysFragmentToEditFragment(
+                entry
+            ))
+            true
+        }
+
+        menu.add(Menu.NONE, MenuItems.DELETE, Menu.NONE, "Delete").setOnMenuItemClickListener {
+            viewModel?.deleteDiaryEntry(entry)
+            true
+        }
+    }
+
     private fun initialize() {
         binding?.rvEntrysList?.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
         binding?.rvEntrysList?.layoutManager = LinearLayoutManager(requireContext())
@@ -48,14 +66,11 @@ class EntrysFragment : Fragment(), View.OnClickListener {
                 it
             ))
         }
-        adapter.deleteEntryLambda = {
-            viewModel?.deleteDiaryEntry(it)
 
-        }
-        adapter.editEntryLambda = {
-            findNavController().navigate(EntrysFragmentDirections.actionEntrysFragmentToEditFragment(
-                it
-            ))
+        adapter.popupMenuShowerLambda = {
+            registerForContextMenu(it)
+            requireActivity().openContextMenu(it)
+            true
         }
 
         viewModel?.readAllDiaryEntrys?.observe(viewLifecycleOwner) { notes ->
