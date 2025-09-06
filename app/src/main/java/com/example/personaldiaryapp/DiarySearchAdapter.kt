@@ -89,11 +89,6 @@ class DiarySearchAdapter(
 
 
     }
-    
-    fun setListDiaryEntries(entrys: List<DiaryEntry>) {
-        this.listDiaryEntrys = entrys
-        notifyDataSetChanged()
-    }
 
     @SuppressWarnings("NotifyDataSetChanged")
     fun setData(data: List<DiaryEntry>) {
