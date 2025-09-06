@@ -17,13 +17,6 @@ import java.util.Date
 
 @Parcelize
 @Entity(
-//    foreignKeys = [ForeignKey(
-//        entity = User::class,
-//        parentColumns = ["userId"],
-//        childColumns = ["userCreatorId"],
-//        onDelete = ForeignKey.CASCADE,
-//        onUpdate = ForeignKey.CASCADE
-//    )],
     tableName = "diary_entrys_table"
 )
 data class DiaryEntry(
@@ -32,7 +25,6 @@ data class DiaryEntry(
     var title: String,
     var content: String,
     var dateCreated: Date = Date()
-//    val userCreatorId: Long
 ): Parcelable
 
 

@@ -14,8 +14,6 @@ class DiaryVM( application: Application ): AndroidViewModel(application)
     val repository: DiaryRepository
     val getUsername: LiveData<String>
     val getPassword: LiveData<String>
-//    val getLoggedInStatus: LiveData<Boolean>
-//    val getThemeMode: LiveData<Boolean>
 
     init {
         val appSettingsDao = AppDataBase.getDataBase(application).appSettingsDao()
@@ -24,8 +22,6 @@ class DiaryVM( application: Application ): AndroidViewModel(application)
         readAllDiaryEntrys = repository.readAllDiaryEntries
         getUsername = repository.getUsername
         getPassword = repository.getPassword
-//        getLoggedInStatus = repository.getLoggedInStatus
-//        getThemeMode =  repository.getThemeMode
     }
 
     fun addDiaryEntry(entry: DiaryEntry) {
@@ -58,46 +54,15 @@ class DiaryVM( application: Application ): AndroidViewModel(application)
         }
     }
 
-//    fun setLoggedInStatus(isLoggedIn: Boolean) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            repository.setLoggedInStatus(isLoggedIn)
-//        }
-//    }
-
     fun setCredentials(username: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.setCredientials(username, password)
         }
     }
 
-//    fun setLightMode() {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            repository.setLightMode()
-//        }
-//    }
-
-//    fun setDarkMode() {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            repository.setDarkMode()
-//        }
-//    }
-
     fun setDefaultSettings() {
         viewModelScope.launch(Dispatchers.IO) {
             repository.setDefaultSettings()
         }
     }
-//    fun verifyCredentials(username: String, password: String): Boolean {
-//        var rv = false
-//        viewModelScope.launch(Dispatchers.IO) {
-//            rv = repository.verifyCredentials(username, password)
-//        }
-//        return rv
-//    }
-
-//    fun addUser(appSettings: AppSettings) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            repository.addUser(appSettings)
-//        }
-//    }
 }

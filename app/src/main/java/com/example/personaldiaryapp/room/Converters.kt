@@ -3,6 +3,9 @@ package com.example.personaldiaryapp.room
 import androidx.room.TypeConverter
 import java.util.Date
 
+
+// from chatgpt and
+// official docs: https://developer.android.com/training/data-storage/room/referencing-data
 class Converters {
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {

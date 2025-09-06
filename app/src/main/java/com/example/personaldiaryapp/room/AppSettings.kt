@@ -37,7 +37,6 @@ data class ApplicationSettings(
     }
 }
 
-
 @Dao
 interface ApplicationSettingsDao {
 
@@ -56,25 +55,9 @@ interface ApplicationSettingsDao {
     @Query("select password from application_settings_table")
     fun getPassword(): LiveData<String>
 
-//    @Query("update application_settings_table set isLightMode = :lightMode")
-//    suspend fun setLightMode(lightMode: Boolean = true)
-//
-//    @Query("update application_settings_table set isLightMode = :lightMode")
-//    suspend fun setDarkMode(lightMode: Boolean = false)
-
-//    @Query("select isLightMode from application_settings_table")
-//    fun getThemeMode(): LiveData<Boolean>
-
     @Query("insert into application_settings_table(username, password) VALUES (:username, :password) ")
     suspend fun setCredentials(username: String, password: String)
 
-//    @Query("update application_settings_table set isLoggedIn = :isLoggedIn")
-//    suspend fun setLoggedInStatus(isLoggedIn: Boolean)
-
-//    @Query("select isLoggedIn from application_settings_table")
-//    fun getLoggedInStatus(): LiveData<Boolean>
-
-//    @Query("insert into application_settings_table(username, password, isLoggedIn, isLightMode) VALUES (:defaultSetting.)")
     @Insert
     suspend fun setDefaultSettings(defaultSetting: ApplicationSettings = ApplicationSettings.generateDefaultValuesSetting())
 }
