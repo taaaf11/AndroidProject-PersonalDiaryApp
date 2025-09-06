@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    tools:context=".DetailsFragment">
+
+
+    <ImageView
+        android:id="@+id/ivBackButtonFragmentDetails"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+
+        android:src="@drawable/back_button"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentDetails"
+        app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentDetails"
+        app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentDetails"
+        app:tint="@color/primary"
+        />
+
+
+    <TextView
+        android:id="@+id/tvHeadingFragmentDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Details"
+        android:textColor="@color/primary"
+        android:textSize="40sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitleValueFragmentDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Title"
+        android:fontFamily="@font/comfortaa"
+        android:textColor="@color/primary"
+        android:textSize="34sp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvHeadingFragmentDetails"
+        app:layout_constraintStart_toStartOf="@id/tvHeadingFragmentDetails"
+        app:layout_constraintEnd_toEndOf="@id/tvHeadingFragmentDetails"
+        android:layout_marginTop="60dp"
+        />
+
+    <TextView
+        android:id="@+id/tvContentValueFragmentDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Content"
+        android:fontFamily="@font/comfortaa"
+        android:textColor="@color/primary"
+        android:textSize="24sp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleValueFragmentDetails"
+        app:layout_constraintStart_toStartOf="@id/tvHeadingFragmentDetails"
+        app:layout_constraintEnd_toEndOf="@id/tvHeadingFragmentDetails"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

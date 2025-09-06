@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:id="@+id/rootLayoutFragmentSplash"
+    tools:context=".SplashFragment">
+
+    <ImageView
+        android:id="@+id/ivSettingsBtnFragmentSplash"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+
+        android:src="@drawable/cog_icon"
+        app:tint="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        />
+
+    <ImageView
+        android:id="@+id/ivLogoFragmentSplash"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@id/tvTransparentCenterHelperForEditTextsFragmentSplash"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="0dp"
+        />
+
+    <TextView
+        android:id="@+id/tvAppNameFragmentSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Your Personal Diary"
+        android:fontFamily="@font/comfortaa"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:background="@color/background"
+        android:textColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentSplash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        />
+
+    <Button
+        android:id="@+id/btnGoFragmentSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Go"
+        android:textColor="@color/primary"
+        android:backgroundTint="@color/btnbackground"
+
+        app:layout_constraintTop_toBottomOf="@id/tvAppNameFragmentSplash"
+        app:layout_constraintStart_toStartOf="@id/tvAppNameFragmentSplash"
+        app:layout_constraintEnd_toEndOf="@id/tvAppNameFragmentSplash"
+        android:layout_marginTop="30dp"
+        />
+
+    <Button
+        android:id="@+id/btnGoToAboutFragmentSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="About"
+        android:textColor="@color/primary"
+        android:backgroundTint="@color/btnbackground"
+
+        app:layout_constraintTop_toBottomOf="@id/btnGoFragmentSplash"
+        app:layout_constraintStart_toStartOf="@id/ivLogoFragmentSplash"
+        app:layout_constraintEnd_toEndOf="@id/ivLogoFragmentSplash"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tvTransparentCenterHelperForEditTextsFragmentSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

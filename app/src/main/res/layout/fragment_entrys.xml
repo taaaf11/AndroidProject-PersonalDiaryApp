@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    tools:context=".EntrysFragment">
+
+
+    <ImageView
+        android:id="@+id/ivBackButtonFragmentEntrys"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+
+        android:src="@drawable/back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentEntrys"
+        app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentEntrys"
+        app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentEntrys"
+        app:tint="@color/primary"
+        />
+
+
+    <TextView
+        android:id="@+id/tvHeadingFragmentEntrys"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Entries"
+        android:textColor="@color/primary"
+        android:textSize="40sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivSearchButtonFragmentEntrys"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+
+        android:src="@drawable/search_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvHeadingFragmentEntrys"
+        app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentEntrys"
+        app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentEntrys"
+        app:tint="@color/primary"
+        />
+
+    <View
+        android:id="@+id/vLine"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        app:layout_constraintTop_toBottomOf="@id/tvHeadingFragmentEntrys"
+        android:background="@color/primary"
+        android:layout_margin="15dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEntrysList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/vLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:id="@+id/btnAddEntry_fragment_entrys"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+
+        android:text="+"
+        android:textColor="@color/primary"
+        android:backgroundTint="@color/btnbackground"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

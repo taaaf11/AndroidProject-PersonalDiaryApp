@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--  Light Mode Colors  -->
+
+    <color name="primary">#7f5539</color>
+    <color name="secondary">#b08968</color>
+    <color name="threethiary">#ddb892</color>
+    <color name="btnbackground">#ede0d4</color>
+    <color name="background">#FEFEF2</color>
+
+    <!--  Dark Mode colors  -->
+    <color name="primaryDark">#ede0d4</color>
+    <color name="secondaryDark">#b08968</color>
+    <color name="threethiaryDark">#ddb892</color>
+    <color name="backgroundDark">#7f5539</color>
+    <color name="btnbackgroundDark">#ddb892</color>
+
+</resources>

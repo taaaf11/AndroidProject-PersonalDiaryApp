@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tvDiaryEntryTitle_layout_card_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/comfortaa"
+            />
+
+        <TextView
+            android:id="@+id/tvDiaryEntryContent_layout_card_view"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+
+            android:text="Content"
+            android:textSize="20sp"
+            android:textColor="@color/primary"
+
+            app:layout_constraintTop_toBottomOf="@id/tvDiaryEntryTitle_layout_card_view"
+            app:layout_constraintStart_toStartOf="@id/tvDiaryEntryTitle_layout_card_view"
+
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/comfortaa"
+            />
+
+        <ImageView
+            android:id="@+id/ivDiaryEntryViewDetailsLayoutCardView"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+
+            android:src="@drawable/back_button"
+            android:scaleX="-1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/primary"
+            />
+
+        <ImageView
+            android:id="@+id/ivDiaryEntryDeleteEntryLayoutCardView"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+
+            android:src="@drawable/delete_icon"
+            android:scaleX="-1"
+            app:layout_constraintEnd_toStartOf="@id/ivDiaryEntryViewDetailsLayoutCardView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/primary"
+            android:layout_marginEnd="10dp"
+            />
+
+        <ImageView
+            android:id="@+id/ivDiaryEntryEditEntryLayoutCardView"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+
+            android:src="@drawable/edit_icon_pencil"
+            android:scaleX="-1"
+            app:layout_constraintEnd_toStartOf="@id/ivDiaryEntryDeleteEntryLayoutCardView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/primary"
+            android:layout_marginEnd="10dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
