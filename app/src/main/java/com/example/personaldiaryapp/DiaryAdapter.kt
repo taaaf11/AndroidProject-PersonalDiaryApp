@@ -26,6 +26,7 @@ class DiaryAdapter(
         val tvTitle = view.findViewById<TextView>(R.id.tvDiaryEntryTitle_layout_card_view)
         val tvContent = view.findViewById<TextView>(R.id.tvDiaryEntryContent_layout_card_view)
         val tvDateValue = view.findViewById<TextView>(R.id.tvDateValue_layout_card_view)
+        val tvContextMenu = view.findViewById<TextView>(R.id.tvOpenContextMenu_layout_card_view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -74,14 +75,30 @@ class DiaryAdapter(
 
         // jab ye activity hoti hai to phir is ki type casting safely ho sakti hai
         // kionke kotlin men references hotay hain
-        (holder.itemView.context as? Activity)?.registerForContextMenu(holder.itemView)
+        // registerForContextMenu
+
+//        (holder.itemView.context as? Activity)?.registerForContextMenu(holder.itemView)
+        (holder.tvContextMenu.context as? Activity)?.registerForContextMenu(holder.tvContextMenu)
 
         holder.itemView.setOnClickListener {
             viewDetailLambda?.invoke(entry)
         }
-        holder.itemView.setOnLongClickListener {
-            popupMenuShowerLambda?.invoke(it)
-            true
+
+//        holder.itemView.setOnLongClickListener {
+//            popupMenuShowerLambda?.invoke(it)
+//            true
+//        }
+
+        holder.tvContextMenu.setOnClickListener {
+            // entry ki information add karnay ke lie setTag
+            // wala function is card-view par call kia gia tha
+
+            // ab popMenuShowerLambda wala function aik View argument
+            // leta hai, jis par wo getTag call karay ga, entry ki
+            // information hasil karnay ke lie
+
+            // is lie ham card-view us ko pass kar rahay hain
+            popupMenuShowerLambda?.invoke(holder.itemView)
         }
     }
 
