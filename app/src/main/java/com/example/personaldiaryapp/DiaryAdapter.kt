@@ -1,6 +1,5 @@
 package com.example.personaldiaryapp
 
-import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +25,7 @@ class DiaryAdapter(
         val tvTitle = view.findViewById<TextView>(R.id.tvDiaryEntryTitle_layout_card_view)
         val tvContent = view.findViewById<TextView>(R.id.tvDiaryEntryContent_layout_card_view)
         val tvDateValue = view.findViewById<TextView>(R.id.tvDateValue_layout_card_view)
-        val tvContextMenu = view.findViewById<TextView>(R.id.tvOpenContextMenu_layout_card_view)
+        val tvOpenPopupMenu = view.findViewById<TextView>(R.id.tvOpenPopupMenu_layout_card_view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -60,45 +59,26 @@ class DiaryAdapter(
         holder.tvDateValue.text = entryCreationTimeFormatter.format(entry.dateCreated)
 
         // setTag is used to embed extra information into
-        // the view i.e. the card-view
+        // the view i.e. the popup menu button
         // this id (R.id.theEntry) is given in ids.xml
-        holder.itemView.setTag(R.id.theEntry, entry)
 
-        // got from ChatGPT
-        // this code registers the card-view to show the context menu
-        // holder.itemView is the card
-        // holder.itemView.context is the activity
-
-        // view.context
-        // ye property kabhi kabhi Activity hoti hi
-        // or kabhi kabhi Activity nahi bhi hoti
-
-        // jab ye activity hoti hai to phir is ki type casting safely ho sakti hai
-        // kionke kotlin men references hotay hain
-        // registerForContextMenu
-
-//        (holder.itemView.context as? Activity)?.registerForContextMenu(holder.itemView)
-        (holder.tvContextMenu.context as? Activity)?.registerForContextMenu(holder.tvContextMenu)
+        holder.tvOpenPopupMenu.setTag(R.id.theEntry, entry)
 
         holder.itemView.setOnClickListener {
             viewDetailLambda?.invoke(entry)
         }
 
-//        holder.itemView.setOnLongClickListener {
-//            popupMenuShowerLambda?.invoke(it)
-//            true
-//        }
-
-        holder.tvContextMenu.setOnClickListener {
+        holder.tvOpenPopupMenu.setOnClickListener {
             // entry ki information add karnay ke lie setTag
-            // wala function is card-view par call kia gia tha
+            // wala function vertical-dots-textView walay
+            // component par call kia gia tha
 
             // ab popMenuShowerLambda wala function aik View argument
             // leta hai, jis par wo getTag call karay ga, entry ki
             // information hasil karnay ke lie
-
-            // is lie ham card-view us ko pass kar rahay hain
-            popupMenuShowerLambda?.invoke(holder.itemView)
+            // is lie ham usay ye vertical-dots-textView ka component
+            // pass kar rahay hain
+            popupMenuShowerLambda?.invoke(holder.tvOpenPopupMenu)
         }
     }
 

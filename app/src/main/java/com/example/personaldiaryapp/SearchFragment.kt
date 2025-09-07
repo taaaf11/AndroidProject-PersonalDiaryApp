@@ -1,12 +1,12 @@
 package com.example.personaldiaryapp
 
 import android.os.Bundle
-import android.view.ContextMenu
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -64,11 +64,11 @@ class SearchFragment : Fragment(), View.OnClickListener {
             ))
         }
 
-        // this is called when the view i.e. the cardView is long-clicked
-        // this will be called inside the setOnLongClickListener of the cardView
+        // this is called when the three dots button is clicked
+        // this will be called inside the setOnClickListener of the three dots buttons
+        // is clicked
         adapter?.popupMenuShowerLambda = {
-            registerForContextMenu(it)
-            requireActivity().openContextMenu(it)
+            showPopup(it)
             true
         }
 
@@ -82,27 +82,52 @@ class SearchFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    // source: https://stackoverflow.com/a/44384149/19619895
-    override fun onCreateContextMenu (menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo? ){
-        val entry = v.getTag(R.id.theEntry) as DiaryEntry
-
-        menu.add(Menu.NONE, CardViewContextMenuItems.EDIT, Menu.NONE, "Edit").setOnMenuItemClickListener {
-            findNavController().navigate(EntrysFragmentDirections.actionEntrysFragmentToEditFragment(
-                entry
-            ))
-            true
-        }
-
-        menu.add(Menu.NONE, CardViewContextMenuItems.DELETE, Menu.NONE, "Delete").setOnMenuItemClickListener {
-            viewModel?.deleteDiaryEntry(entry)
-            true
-        }
-    }
-
     private fun registerClicks() {
         binding?.ivBackButtonFragmentSearch?.setOnClickListener(this)
         binding?.ivSetFiltersFragmentSearch?.setOnClickListener(this)
     }
+
+    // source: https://stackoverflow.com/a/48628108/19619895
+    private fun showPopup(view: View) {
+        val popup = PopupMenu(context, view)
+        popup.inflate(R.menu.card_view_popup_menu)
+
+        // ham ne DiaryAdapter wali class men, onBindViewHolder
+        // walay function men, vertical-three-dots walay component
+        // par setTag ke zariya ham ne is component
+        // men wo specific DiaryEntry ki instance store ki thi
+
+        // ab ham us instance ko hasil kar rahay hain, id ke zariye
+        // `as` wala keyword type casting kar raha hai
+        // kionke getTag wala function Any type ka object
+        // return karta hai. ab hamen pata hai ke wo object
+        // DiaryEntry ka object hai, is lie ham is ko
+        // safely to-DiaryEntry type-cast kar saktay hain
+        val entry = view.getTag(R.id.theEntry) as DiaryEntry
+
+        // ye function tab call ho ga jab menu men se koi
+        // item (koi option) select / click ki jaye gi
+        popup.setOnMenuItemClickListener { item: MenuItem? ->
+
+            // ye item ki id ko check karta hai
+            when (item!!.itemId) {
+                R.id.menuitemEditCardViewPopMenu -> {
+                    findNavController().navigate(
+                        EntrysFragmentDirections.actionEntrysFragmentToEditFragment(entry)
+                    )
+                }
+
+                R.id.menuitemDeleteCardViewPopMenu -> {
+                    viewModel?.deleteDiaryEntry(entry)
+                }
+            }
+
+            true
+        }
+
+        popup.show()
+    }
+
 
     override fun onClick(v: View?) {
         when (v?.id) {

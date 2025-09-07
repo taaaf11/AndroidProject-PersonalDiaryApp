@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--  Each item tag in this file will be used  -->
+    <!--  to create entries in the pop menu  -->
+    <item
+        android:id="@+id/menuitemEditCardViewPopMenu"
+        android:title="Edit" />
+    <item
+        android:id="@+id/menuitemDeleteCardViewPopMenu"
+        android:title="Delete" />
+</menu>
+
+<!--  Source: https://stackoverflow.com/a/48628108/19619895  -->
