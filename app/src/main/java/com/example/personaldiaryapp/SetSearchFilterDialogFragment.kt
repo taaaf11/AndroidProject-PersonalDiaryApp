@@ -9,6 +9,9 @@ import androidx.fragment.app.DialogFragment
 class SetSearchFilterDialogFragment : DialogFragment() {
     var titleQuery: String? = null
     var contentQuery: String? = null
+
+    // this is the function that will be called when the
+    // "Apply" button in this dialog will be pressed
     var valueGetterLambda: ((String?, String?) -> Unit)? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -22,7 +25,7 @@ class SetSearchFilterDialogFragment : DialogFragment() {
             // using this variable
             val dialogView = inflater.inflate(R.layout.search_filter_dialog,null)
             builder.setView(dialogView)
-            builder.setMessage("Start game")
+            builder.setMessage("Apply filters")
                 .setPositiveButton("Apply") { dialog, id ->
                     val etTitleQuery = dialogView?.findViewById<EditText>(R.id.etTitleValue_layout_search_filter_dialog)
                     val etContentQuery = dialogView?.findViewById<EditText>(R.id.etContentValue_layout_search_filter_dialog)

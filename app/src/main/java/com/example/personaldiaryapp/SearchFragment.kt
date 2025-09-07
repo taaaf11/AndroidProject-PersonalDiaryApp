@@ -113,11 +113,17 @@ class SearchFragment : Fragment(), View.OnClickListener {
             R.id.ivSetFiltersFragmentSearch -> {
                 val dialog = SetSearchFilterDialogFragment()
                 dialog.show(parentFragmentManager, "")
+
+                // jab user "Apply" button par click karay ga
+                // tab ye lambda (function) call ho ga
+                // is function ki declaration (SetSearchFilterDialogFragment men)
+                // men 2 String type ki arguments hain
+
+                // ham ye function un filter ki values hasil karnay ke lie use
+                // kar rahay hain
                 dialog.valueGetterLambda = { titleQuery, contentQuery ->
                     titleQueryValue = titleQuery
                     contentQueryValue = contentQuery
-
-//                    Log.i("TAG", "$titleQueryValue, $contentQueryValue")
 
                     adapter?.setSearchQueries(titleQuery!!, contentQuery!!)
                 }
