@@ -20,9 +20,6 @@ class DetailsFragment : Fragment(), View.OnClickListener {
     var viewModel: DiaryVM? = null
     private val args: DetailsFragmentArgs by navArgs()
 
-    private var usernameInDb: String? = null
-    private var passwordInDb: String? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,16 +38,8 @@ class DetailsFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initialize() {
-        binding?.tvTitleValueFragmentDetails?.setText(args.entryInstance.title)
-        binding?.tvContentValueFragmentDetails?.setText(args.entryInstance.content)
-//        viewModel?.getUsername?.observe(viewLifecycleOwner) {
-//            usernameInDb = it
-//        }
-//        viewModel?.getPassword?.observe(viewLifecycleOwner) {
-//            passwordInDb = it
-//        }
-//        Log.i("HERE", "Username: $usernameInDb")
-//        Log.i("HERE", "Password: $passwordInDb")
+        binding?.tvTitleValueFragmentDetails?.text = args.entryInstance.title
+        binding?.tvContentValueFragmentDetails?.text = args.entryInstance.content
     }
 
     private fun registerClicks() {

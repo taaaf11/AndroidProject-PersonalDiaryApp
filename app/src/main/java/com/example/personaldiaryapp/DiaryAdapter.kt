@@ -52,18 +52,28 @@ class DiaryAdapter(
         holder.tvContent.text = content
 
         // setting the date value to a pretty format
-        val entryCreationTimeFormatter = SimpleDateFormat("MMM d, yyyy · h:mm a", Locale.getDefault())
+        val entryCreationTimeFormatter = SimpleDateFormat(
+            "MMM d, yyyy · h:mm a",
+            Locale.getDefault()
+        )
         holder.tvDateValue.text = entryCreationTimeFormatter.format(entry.dateCreated)
 
         // setTag is used to embed extra information into
-        // the view i.e. the cardview
+        // the view i.e. the card-view
         // this id (R.id.theEntry) is given in ids.xml
         holder.itemView.setTag(R.id.theEntry, entry)
 
-        // got from chatgpt
-        // this code registers the cardview to show the context menu
+        // got from ChatGPT
+        // this code registers the card-view to show the context menu
         // holder.itemView is the card
         // holder.itemView.context is the activity
+
+        // view.context
+        // ye property kabhi kabhi Activity hoti hi
+        // or kabhi kabhi Activity nahi bhi hoti
+
+        // jab ye activity hoti hai to phir is ki type casting safely ho sakti hai
+        // kionke kotlin men references hotay hain
         (holder.itemView.context as? Activity)?.registerForContextMenu(holder.itemView)
 
         holder.itemView.setOnClickListener {
@@ -81,6 +91,7 @@ class DiaryAdapter(
         notifyDataSetChanged()
     }
 
+    @SuppressWarnings("NotifyDataSetChanged")
     fun setSearchQueries(titleQuery: String, contentQuery: String) {
         val allDiaryEntrys = viewModel?.readAllDiaryEntrys?.value
         require(allDiaryEntrys != null) { "The viewModel is still null" }
