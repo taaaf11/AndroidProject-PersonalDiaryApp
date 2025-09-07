@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomPopUpStyle" parent="Widget.AppCompat.PopupMenu">
+<!--        <item name="android:textColor">@android:color/white</item>-->
+        <item name="android:itemBackground">@color/background</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+</resources>
+
+<!--  Custom theme containing settings for styling popup card-view popup menu  -->
+<!--  Source: https://stackoverflow.com/a/70210405/19619895  -->

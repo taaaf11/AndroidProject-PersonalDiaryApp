@@ -1,12 +1,13 @@
 package com.example.personaldiaryapp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.view.ContextThemeWrapper
 import android.widget.PopupMenu
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -82,7 +83,13 @@ class EntrysFragment : Fragment(), View.OnClickListener {
 
     // source: https://stackoverflow.com/a/48628108/19619895
     private fun showPopup(view: View) {
-        val popup = PopupMenu(context, view)
+        // popup menu ka background color or menu options ke text color ko
+        // change karnay ke lie ContextThemeWrapper istamal kia hai
+        // R.style.CustomPopUpStyle men colors given hain
+        // is ka sourec:
+        // https://stackoverflow.com/a/70210405/19619895
+        val wrapper = ContextThemeWrapper(context, R.style.CustomPopUpStyle)
+        val popup = PopupMenu(wrapper, view)
         popup.inflate(R.menu.card_view_popup_menu)
 
         // ham ne DiaryAdapter wali class men, onBindViewHolder

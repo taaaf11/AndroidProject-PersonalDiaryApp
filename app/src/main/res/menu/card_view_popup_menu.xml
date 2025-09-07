@@ -5,10 +5,12 @@
     <!--  to create entries in the pop menu  -->
     <item
         android:id="@+id/menuitemEditCardViewPopMenu"
-        android:title="Edit" />
+        android:title="Edit"
+        />
     <item
         android:id="@+id/menuitemDeleteCardViewPopMenu"
-        android:title="Delete" />
+        android:title="Delete"
+        />
 </menu>
 
 <!--  Source: https://stackoverflow.com/a/48628108/19619895  -->
