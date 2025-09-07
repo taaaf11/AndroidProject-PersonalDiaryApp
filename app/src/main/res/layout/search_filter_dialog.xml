@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp"
+        android:background="@color/background"
         >
 
         <TextView
@@ -16,7 +17,10 @@
             android:layout_height="wrap_content"
 
             android:text="Title: "
-            android:textSize="12sp"
+            android:textSize="14sp"
+            android:textColor="@color/primary"
+            android:textStyle="bold"
+
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +30,8 @@
             android:id="@+id/etTitleValue_layout_search_filter_dialog"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-
+            android:textSize="14sp"
+            android:textColor="@color/primary"
             app:layout_constraintStart_toEndOf="@id/tvTitle_layout_search_filter_dialog"
             app:layout_constraintTop_toTopOf="@id/tvTitle_layout_search_filter_dialog"
             app:layout_constraintBottom_toBottomOf="@id/tvTitle_layout_search_filter_dialog"
@@ -39,7 +44,9 @@
             android:layout_height="wrap_content"
 
             android:text="Content: "
-            android:textSize="12sp"
+            android:textSize="14sp"
+            android:textColor="@color/primary"
+            android:textStyle="bold"
 
             app:layout_constraintTop_toBottomOf="@id/tvTitle_layout_search_filter_dialog"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +57,8 @@
             android:id="@+id/etContentValue_layout_search_filter_dialog"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-
+            android:textColor="@color/primary"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@id/tvContent_layout_search_filter_dialog"
             app:layout_constraintTop_toTopOf="@id/tvContent_layout_search_filter_dialog"
             app:layout_constraintBottom_toBottomOf="@id/tvContent_layout_search_filter_dialog"

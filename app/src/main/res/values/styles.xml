@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--  For popup menu of card view  -->
+    <!--  Source: https://stackoverflow.com/a/70210405/19619895  -->
     <style name="CustomPopUpStyle" parent="Widget.AppCompat.PopupMenu">
-<!--        <item name="android:textColor">@android:color/white</item>-->
         <item name="android:itemBackground">@color/background</item>
         <item name="android:textColor">@color/primary</item>
     </style>
+
+    <!--  For apply-filters alert-dialog  -->
+    <!--  Source: https://stackoverflow.com/a/78558947/19619895  -->
+    <style name="ApplyFiltersDialogStyle" parent="Theme.MaterialComponents.DayNight.Dialog.Alert" >
+        <!--  This line sets the colors of "borders" of alert dialog "window"  -->
+        <item name="android:background">@color/background</item>
+
+    </style>
+
 </resources>
 
-<!--  Custom theme containing settings for styling popup card-view popup menu  -->
-<!--  Source: https://stackoverflow.com/a/70210405/19619895  -->
+<!--  Custom theme containing settings for styling popup menus and dialogs  -->
