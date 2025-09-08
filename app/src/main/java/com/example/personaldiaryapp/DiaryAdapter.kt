@@ -48,7 +48,7 @@ class DiaryAdapter(
         // setting the content textview
         var content = entry.content
         if (content.length >= 10) {
-            content = content.slice(0..10) + "..."
+            content = content.slice(0..8) + "..."
         }
         holder.tvContent.text = content
 
