@@ -23,16 +23,28 @@ class DiaryRepository(
         diaryEntryDao.deleteDiaryEntry(entry)
     }
 
+    /**
+     * This method updates the entry in database
+    and sets username field to given parameter value
+     */
     suspend fun setUsername(username: String) {
         appSettingsDao.setUsername(username)
     }
 
+    /**
+     * This method updates the entry in database
+    and sets password field to given parameter value
+     */
     suspend fun setPassword(password: String) {
         appSettingsDao.setPassword(password)
     }
 
-    suspend fun setCredientials(username: String, password: String) {
-        appSettingsDao.setCredentials(username, password)
+    /**
+     * This method updates the entry in database
+    and sets username field to given parameter value
+     */
+    suspend fun createCredentials(username: String, password: String) {
+        appSettingsDao.createCredentials(username, password)
     }
 
     suspend fun setDefaultSettings() {

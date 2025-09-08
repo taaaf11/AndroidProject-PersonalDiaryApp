@@ -19,6 +19,9 @@ class SetSearchFilterDialogFragment : DialogFragment() {
     var valueGetterLambda: ((String?, String?) -> Unit)? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        // .let member function se ye hota hai ke:
+        // agar activity null nai hai, to ye block run karay ga
+        // warna nai
         return activity?.let {
             // Use the Builder class for convenient dialog construction.
 

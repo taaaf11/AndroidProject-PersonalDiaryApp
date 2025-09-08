@@ -6,11 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.personaldiaryapp.databinding.FragmentSettingsBinding
 import com.example.personaldiaryapp.room.DiaryVM
 
@@ -42,10 +39,6 @@ class SettingsFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initialize() {
-//
-//        fun getColorFromResources(id: Int): Int {
-//            return ContextCompat.getColor(requireContext(), id)
-//        }
         viewModel?.getUsername?.observe(viewLifecycleOwner) {
             usernameInDb = it
         }
@@ -54,45 +47,11 @@ class SettingsFragment : Fragment(), View.OnClickListener {
         }
         Log.i("HERE", "Username: $usernameInDb")
         Log.i("HERE", "Password: $passwordInDb")
-//
-//        viewModel?.getThemeMode?.observe(viewLifecycleOwner) { isLightThemeInDb ->
-//            if (isLightThemeInDb == null) {
-//                viewModel?.setDefaultSettings()
-//                Log.i("HERE", "Settin defaults")
-//            }
-//
-//
-//
-//            val isLightTheme = isLightThemeInDb ?: true
-//            if (isLightTheme) {
-//                binding?.rootLayoutFragmentSettings?.setBackgroundColor(
-//                    getColorFromResources(R.color.background)
-//                )
-//                binding?.tvHeadingFragmentSettings?.setTextColor(
-//                    getColorFromResources(R.color.primary)
-//                )
-//            }
-//            else {
-//                binding?.rootLayoutFragmentSettings?.setBackgroundColor(
-//                    getColorFromResources(R.color.backgroundDark)
-//                )
-//                binding?.tvHeadingFragmentSettings?.setTextColor(
-//                    getColorFromResources(R.color.primaryDark)
-//                )
-//                binding?.btnThemeSwithFragmentSettings?.setTextColor(
-//                    getColorFromResources(R.color.primaryDark)
-//                )
-//                binding?.btnThemeSwithFragmentSettings?.setBackgroundColor(
-//                    getColorFromResources(R.color.btnbackgroundDark)
-//                )
-//            }
-//        }
     }
 
     private fun registerClicks() {
         binding?.ivBackButtonFragmentSettings?.setOnClickListener(this)
         binding?.btnSetCredentialsFragmentSettings?.setOnClickListener(this)
-//        binding?.btnThemeSwithFragmentSettings?.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -104,20 +63,15 @@ class SettingsFragment : Fragment(), View.OnClickListener {
                 val usernameValue = binding?.etUsernameFragmentSettings?.text.toString()
                 val passwordValue = binding?.etPasswordFragmentSettings?.text.toString()
 
-//                if (usernameValue.isNotEmpty() && passwordValue.isNotEmpty()) {
-                    if (usernameInDb == null && passwordInDb == null) {
-                        viewModel?.setCredentials(usernameValue, passwordValue)
-                    }
-                    else {
-                        viewModel?.setUsername(usernameValue)
-                        viewModel?.setPassword(passwordValue)
-                    }
+                if (usernameInDb == null && passwordInDb == null) {
+                    viewModel?.createCredentials(usernameValue, passwordValue)
+                }
+                else {
+                    viewModel?.setUsername(usernameValue)
+                    viewModel?.setPassword(passwordValue)
+                }
 
-                    findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToHomeFragment())
-//                }
-//                else {
-//                    Toast.makeText(context, "Empty fields", Toast.LENGTH_SHORT).show()
-//                }
+                findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToHomeFragment())
             }
         }
     }

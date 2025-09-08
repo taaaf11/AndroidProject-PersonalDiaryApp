@@ -42,21 +42,33 @@ class DiaryVM( application: Application ): AndroidViewModel(application)
         }
     }
 
+    /**
+     * This method updates the entry in database
+        and sets username field to given parameter value
+    */
     fun setUsername(username: String) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.setUsername(username)
         }
     }
 
+    /**
+     * This method updates the entry in database
+        and sets password field to given parameter value
+    */
     fun setPassword(password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.setPassword(password)
         }
     }
 
-    fun setCredentials(username: String, password: String) {
+    /**
+     * This method creates a new entry in database with provided values
+        of username and password parameters
+    */
+    fun createCredentials(username: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.setCredientials(username, password)
+            repository.createCredentials(username, password)
         }
     }
 
