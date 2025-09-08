@@ -4,8 +4,8 @@
     <!--  For popup menu of card view  -->
     <!--  Source: https://stackoverflow.com/a/70210405/19619895  -->
     <style name="CustomPopUpStyle" parent="Widget.AppCompat.PopupMenu">
-        <item name="android:itemBackground">@color/background</item>
-        <item name="android:textColor">@color/primary</item>
+        <item name="android:itemBackground">@color/ctp_surface1</item>
+        <item name="android:textColor">@color/ctp_text</item>
     </style>
 
     <!--  For apply-filters alert-dialog  -->

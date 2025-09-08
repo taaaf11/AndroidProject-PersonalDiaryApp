@@ -1,102 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:background="@color/ctp_base"
     tools:context=".EditFragment">
 
-
+    <!-- Back Button -->
     <ImageView
         android:id="@+id/ivBackButtonFragmentEdit"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        
         android:src="@drawable/back_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentEdit"
-        app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentEdit"
-        app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentEdit"
         app:tint="@color/ctp_lavender"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Back" />
 
-
+    <!-- Heading -->
     <TextView
         android:id="@+id/tvHeadingFragmentEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="8dp"
         android:text="Edit Entry"
-        android:textSize="40sp"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:textColor="@color/ctp_lavender"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivBackButtonFragmentEdit"
+        app:layout_constraintBottom_toBottomOf="@id/ivBackButtonFragmentEdit"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        app:layout_constraintEnd_toEndOf="parent"
+    <!-- Title Label -->
+    <TextView
+        android:id="@+id/tvTitleHeadingFragmentEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/ctp_sky"
+        app:layout_constraintTop_toBottomOf="@id/tvHeadingFragmentEdit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="32dp" />
 
+    <!-- Title Field -->
     <EditText
         android:id="@+id/etTitleFragmentEdit"
-        android:layout_width="180dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-
-
-        android:hint="Title"
-
-        app:layout_constraintBottom_toTopOf="@id/tvTransparentCenterHelperForEditTextsFragmentEdit"
+        android:hint="Enter title..."
+        android:backgroundTint="@color/ctp_mauve"
+        android:textColor="@color/ctp_text"
+        android:textColorHint="@color/ctp_overlay1"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:inputType="textCapSentences"
+        app:layout_constraintTop_toBottomOf="@id/tvTitleHeadingFragmentEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="40dp"
-        />
+        android:layout_marginTop="8dp" />
 
+    <!-- Content Label -->
     <TextView
         android:id="@+id/tvContentHeadingFragmentEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:text="Content"
-        android:textSize="30sp"
-
-        app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentEdit"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/ctp_sky"
+        app:layout_constraintTop_toBottomOf="@id/etTitleFragmentEdit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="24dp" />
 
+    <!-- Content Field -->
     <EditText
         android:id="@+id/etContentFragmentEdit"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-
-        android:hint="Content"
-        android:textColor="@color/primary"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Edit your content here..."
+        android:backgroundTint="@color/ctp_mauve"
+        android:textColor="@color/ctp_text"
+        android:textColorHint="@color/ctp_overlay1"
+        android:padding="12dp"
+        android:gravity="top|start"
         android:inputType="textMultiLine"
-
+        android:minLines="6"
+        android:scrollbars="vertical"
         app:layout_constraintTop_toBottomOf="@id/tvContentHeadingFragmentEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
-        />
+        app:layout_constraintBottom_toTopOf="@id/btnUpdateEntryFragmentEdit"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp" />
 
-    <TextView
-        android:id="@+id/tvTransparentCenterHelperForEditTextsFragmentEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- Update Button -->
     <Button
         android:id="@+id/btnUpdateEntryFragmentEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Update"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:fontFamily="sans-serif-medium"
+        android:backgroundTint="@color/ctp_green"
+        android:textColor="@color/ctp_base"
+        android:padding="12dp"
+        app:cornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
-        android:layout_marginBottom="20dp"
-        />
-
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    tools:context=".EditFragment">-->
+
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ivBackButtonFragmentEdit"-->
+<!--        android:layout_width="35dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        -->
+<!--        android:src="@drawable/back_button"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentEdit"-->
+<!--        app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentEdit"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentEdit"-->
+<!--        app:tint="@color/ctp_lavender"-->
+<!--        />-->
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvHeadingFragmentEdit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:text="Edit Entry"-->
+<!--        android:textSize="40sp"-->
+
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/etTitleFragmentEdit"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="wrap_content"-->
+
+
+<!--        android:hint="Title"-->
+
+<!--        app:layout_constraintBottom_toTopOf="@id/tvTransparentCenterHelperForEditTextsFragmentEdit"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginBottom="40dp"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvContentHeadingFragmentEdit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:text="Content"-->
+<!--        android:textSize="30sp"-->
+
+<!--        app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentEdit"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/etContentFragmentEdit"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:hint="Content"-->
+<!--        android:textColor="@color/primary"-->
+<!--        android:inputType="textMultiLine"-->
+
+<!--        app:layout_constraintTop_toBottomOf="@id/tvContentHeadingFragmentEdit"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvTransparentCenterHelperForEditTextsFragmentEdit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnUpdateEntryFragmentEdit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Update"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+
+<!--        android:layout_marginBottom="20dp"-->
+<!--        />-->
+
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

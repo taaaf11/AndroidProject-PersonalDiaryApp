@@ -66,6 +66,11 @@ class EntrysFragment : Fragment(), View.OnClickListener {
             true
         }
 
+        adapter.bottomsheetShowerLambda = {
+            showBottomSheet()
+
+        }
+
         // this block creates an "observer", meaning that whenever
         // the dataset changes, this block will be called. (verified using logging)
         // inside the block, we are calling adapter?.setData(notes)
@@ -132,6 +137,11 @@ class EntrysFragment : Fragment(), View.OnClickListener {
         }
 
         popup.show()
+    }
+
+    private fun showBottomSheet() {
+        val bottomSheet = MyBottomSheet()
+        bottomSheet.show(parentFragmentManager, "MyBottomSheet")
     }
 
     override fun onClick(v: View?) {

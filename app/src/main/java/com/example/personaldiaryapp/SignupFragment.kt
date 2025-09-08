@@ -1,59 +1,86 @@
 package com.example.personaldiaryapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.personaldiaryapp.databinding.FragmentSignupBinding
+import com.example.personaldiaryapp.databinding.LoginCardBinding
+import com.example.personaldiaryapp.databinding.SignupCardBinding
+import com.example.personaldiaryapp.room.DiaryVM
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class SignupFragment : Fragment(), View.OnClickListener {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SignupFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SignupFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentSignupBinding? = null
+    public val binding get() = _binding
+    var viewModel: DiaryVM? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var usernameInDb: String? = null
+    private var passwordInDb: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signup, container, false)
+        _binding = FragmentSignupBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(DiaryVM::class)
+        return binding?.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SignupFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SignupFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initialize()
+        registerClicks()
+    }
+
+    private fun initialize() {
+        var valuesAreNull: Boolean = false
+        viewModel?.getUsername?.observe(viewLifecycleOwner) {
+            if (it == null) {
+                valuesAreNull = true
+
+                Log.i("Null check", "We are nulll credentials")
+                viewModel?.setDefaultSettings()
+            }
+            usernameInDb = it ?: ""
+        }
+        viewModel?.getPassword?.observe(viewLifecycleOwner) {
+            passwordInDb = it ?: ""
+        }
+    }
+
+    private fun registerClicks() {
+        binding?.includedCard?.btnSignupSignupCard?.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btnSignup_signup_card -> {
+                val nameValue = binding?.includedCard?.etNameSignupCard?.text.toString()
+                val usernameValue = binding?.includedCard?.etUsernameSignupCard?.text.toString()
+                val passwordValue = binding?.includedCard?.etPasswordSignupCard?.text.toString()
+
+                if (usernameValue == usernameInDb && passwordValue == passwordInDb) {
+//                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+//                    viewModel?.setLoggedInStatus(true)
+                }
+
+                else{
+                    Toast.makeText(context, "Invalid Credentials", Toast.LENGTH_SHORT).show()
                 }
             }
+//            R.id.btnSignup_fragment_login -> {
+//                findNavController().navigate(
+//                    LoginFragmentDirections.actionLoginFragmentToSignupFragment()
+//                )
+//            }
+        }
     }
 }

@@ -1,99 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayoutFragmentAbout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/ctp_base"
     tools:context=".AboutFragment">
 
+    <!-- Back Button -->
     <ImageView
         android:id="@+id/ivBackButtonFragmentAbout"
         android:layout_width="35dp"
         android:layout_height="35dp"
-
         android:src="@drawable/back_button"
-        
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentAbout"
-        app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentAbout"
-        app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentAbout"
         app:tint="@color/ctp_lavender"
-        />
+        app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentAbout"
+        app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentAbout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentAbout" />
 
+    <!-- Heading -->
     <TextView
         android:id="@+id/tvHeadingFragmentAbout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="About"
-        android:textSize="40sp"
-
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/comfortaa"
+        android:textColor="@color/ctp_lavender"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!--  Source for circle imageview  -->
-    <!--  https://stackoverflow.com/a/72993081/19619895  -->
+    <!-- Profile Image -->
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/ivProfile"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:src="@drawable/my_pic"
+        android:contentDescription="Profile picture"
+        android:scaleType="centerCrop"
         app:roundPercent="1"
-        android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@id/tvTransparentCenterHelperForEditTextsFragmentEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="2dp"
-        />
+        android:layout_marginBottom="8dp" />
 
+    <!-- App Name -->
     <TextView
         android:id="@+id/tvAppNameFragmentAbout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:text="Personal Diary App"
         android:fontFamily="@font/comfortaa"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-
+        android:textColor="@color/ctp_text"
         app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_marginTop="16dp" />
 
+    <!-- Divider -->
+    <View
+        android:layout_width="120dp"
+        android:layout_height="2dp"
+        android:background="@color/ctp_overlay1"
+        app:layout_constraintTop_toBottomOf="@id/tvAppNameFragmentAbout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
 
+    <!-- Created By Title -->
     <TextView
         android:id="@+id/tvCreatedByFragmentAbout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Created by:"
+        android:text="Created By"
         android:fontFamily="@font/comfortaa"
         android:textSize="20sp"
         android:textStyle="bold"
-
+        android:textColor="@color/ctp_lavender"
         app:layout_constraintTop_toBottomOf="@id/tvAppNameFragmentAbout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"
-        />
+        android:layout_marginTop="48dp" />
 
+    <!-- Author Name -->
     <TextView
+        android:id="@+id/tvAuthorNameFragmentAbout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:text="Muhammad Altaaf:"
+        android:text="Muhammad Altaaf"
         android:fontFamily="@font/comfortaa"
-        android:textSize="20sp"
-
+        android:textSize="18sp"
+        android:textColor="@color/ctp_text"
         app:layout_constraintTop_toBottomOf="@id/tvCreatedByFragmentAbout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_marginTop="12dp" />
 
+    <!-- Center Helper -->
     <TextView
         android:id="@+id/tvTransparentCenterHelperForEditTextsFragmentEdit"
         android:layout_width="wrap_content"
@@ -105,3 +115,111 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    tools:context=".AboutFragment">-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ivBackButtonFragmentAbout"-->
+<!--        android:layout_width="35dp"-->
+<!--        android:layout_height="35dp"-->
+
+<!--        android:src="@drawable/back_button"-->
+<!--        -->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentAbout"-->
+<!--        app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentAbout"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentAbout"-->
+<!--        app:tint="@color/ctp_lavender"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvHeadingFragmentAbout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:text="About"-->
+<!--        android:textSize="40sp"-->
+
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    &lt;!&ndash;  Source for circle imageview  &ndash;&gt;-->
+<!--    &lt;!&ndash;  https://stackoverflow.com/a/72993081/19619895  &ndash;&gt;-->
+<!--    <androidx.constraintlayout.utils.widget.ImageFilterView-->
+<!--        android:id="@+id/ivProfile"-->
+<!--        android:layout_width="120dp"-->
+<!--        android:layout_height="120dp"-->
+<!--        android:src="@drawable/my_pic"-->
+<!--        app:roundPercent="1"-->
+<!--        android:scaleType="fitXY"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/tvTransparentCenterHelperForEditTextsFragmentEdit"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginBottom="2dp"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvAppNameFragmentAbout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:text="Personal Diary App"-->
+<!--        android:fontFamily="@font/comfortaa"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+
+<!--        app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentEdit"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        />-->
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvCreatedByFragmentAbout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:text="Created by:"-->
+<!--        android:fontFamily="@font/comfortaa"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+
+<!--        app:layout_constraintTop_toBottomOf="@id/tvAppNameFragmentAbout"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:text="Muhammad Altaaf:"-->
+<!--        android:fontFamily="@font/comfortaa"-->
+<!--        android:textSize="20sp"-->
+
+<!--        app:layout_constraintTop_toBottomOf="@id/tvCreatedByFragmentAbout"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvTransparentCenterHelperForEditTextsFragmentEdit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text=""-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

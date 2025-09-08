@@ -89,11 +89,11 @@ class LoginFragment : Fragment(), View.OnClickListener {
                     Toast.makeText(context, "Invalid Credentials", Toast.LENGTH_SHORT).show()
                 }
             }
-            R.id.btnSignup_fragment_login -> {
-                findNavController().navigate(
-                    LoginFragmentDirections.actionLoginFragmentToSignupFragment()
-                )
-            }
+//            R.id.btnSignup_fragment_login -> {
+//                findNavController().navigate(
+//                    LoginFragmentDirections.actionLoginFragmentToSignupFragment()
+//                )
+//            }
         }
     }
 }

@@ -18,6 +18,7 @@ class DiaryAdapter(
     private var listDiaryEntrys = emptyList<DiaryEntry>()
     var viewDetailLambda: ((DiaryEntry) -> Unit)? = null
     var popupMenuShowerLambda: ((View) -> Boolean)? = null
+    var bottomsheetShowerLambda: ((DiaryEntry) -> Unit)? = null
 
     var viewModel: DiaryVM? = null
 
@@ -64,8 +65,10 @@ class DiaryAdapter(
 
         holder.tvOpenPopupMenu.setTag(R.id.theEntry, entry)
 
+
         holder.itemView.setOnClickListener {
             viewDetailLambda?.invoke(entry)
+//            bottomsheetShowerLambda?.invoke(entry)
         }
 
         holder.tvOpenPopupMenu.setOnClickListener {
