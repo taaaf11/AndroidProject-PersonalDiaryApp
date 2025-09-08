@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/background"
     tools:context=".DetailsFragment">
 
 
@@ -19,7 +18,7 @@
         app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentDetails"
         app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentDetails"
         app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentDetails"
-        app:tint="@color/primary"
+        app:tint="@color/ctp_lavender"
         />
 
 
@@ -29,7 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Details"
-        android:textColor="@color/primary"
         android:textSize="40sp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +41,6 @@
 
         android:text="Title"
         android:fontFamily="@font/comfortaa"
-        android:textColor="@color/primary"
         android:textStyle="bold"
         android:textSize="24sp"
         android:lineSpacingMultiplier="1.1"
@@ -66,7 +63,6 @@
 
         android:text="Content"
         android:fontFamily="@font/comfortaa"
-        android:textColor="@color/primary"
         android:textSize="16.8sp"
         android:lineSpacingMultiplier="1.3"
         android:lineSpacingExtra="0dp"

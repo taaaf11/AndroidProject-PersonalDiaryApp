@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     android:id="@+id/rootLayoutFragmentSplash"
     tools:context=".SplashFragment">
 
@@ -30,8 +29,6 @@
         android:fontFamily="@font/comfortaa"
         android:textStyle="bold"
         android:textSize="22sp"
-        android:background="@color/background"
-        android:textColor="@color/primary"
         app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentSplash"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +41,6 @@
         android:layout_height="wrap_content"
 
         android:text="Go"
-        android:textColor="@color/primary"
-        android:backgroundTint="@color/btnbackground"
 
         app:layout_constraintTop_toBottomOf="@id/tvAppNameFragmentSplash"
         app:layout_constraintStart_toStartOf="@id/tvAppNameFragmentSplash"
@@ -59,8 +54,6 @@
         android:layout_height="wrap_content"
 
         android:text="About"
-        android:textColor="@color/primary"
-        android:backgroundTint="@color/btnbackground"
 
         app:layout_constraintTop_toBottomOf="@id/btnGoFragmentSplash"
         app:layout_constraintStart_toStartOf="@id/ivLogoFragmentSplash"

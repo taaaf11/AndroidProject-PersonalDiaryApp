@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/background"
     tools:context=".AboutFragment">
 
     <ImageView
@@ -18,7 +17,7 @@
         app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentAbout"
         app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentAbout"
         app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentAbout"
-        app:tint="@color/primary"
+        app:tint="@color/ctp_lavender"
         />
 
     <TextView
@@ -27,7 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="About"
-        android:textColor="@color/primary"
         android:textSize="40sp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +56,6 @@
         android:fontFamily="@font/comfortaa"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/primary"
 
         app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentEdit"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +72,6 @@
         android:text="Created by:"
         android:fontFamily="@font/comfortaa"
         android:textSize="20sp"
-        android:textColor="@color/primary"
         android:textStyle="bold"
 
         app:layout_constraintTop_toBottomOf="@id/tvAppNameFragmentAbout"
@@ -91,7 +87,6 @@
         android:text="Muhammad Altaaf:"
         android:fontFamily="@font/comfortaa"
         android:textSize="20sp"
-        android:textColor="@color/primary"
 
         app:layout_constraintTop_toBottomOf="@id/tvCreatedByFragmentAbout"
         app:layout_constraintStart_toStartOf="parent"

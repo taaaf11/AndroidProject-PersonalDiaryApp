@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/background"
     tools:context=".SearchFragment">
 
 
@@ -18,7 +17,7 @@
         app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentSearch"
         app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentSearch"
         app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentSearch"
-        app:tint="@color/primary"
+        app:tint="@color/ctp_lavender"
         />
 
 
@@ -30,7 +29,6 @@
 
         android:text="Search"
         android:textSize="40sp"
-        android:textColor="@color/primary"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +43,7 @@
 
         android:layout_margin="15dp"
         android:layout_marginTop="16dp"
-        android:background="@color/primary"
+        android:background="@color/ctp_pink"
         app:layout_constraintTop_toBottomOf="@id/tvHeadingFragmentSearch"
         tools:layout_editor_absoluteX="14dp" />
 
@@ -59,7 +57,7 @@
         app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentSearch"
         app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentSearch"
         android:src="@drawable/filter_icon"
-        app:tint="@color/primary"
+        app:tint="@color/ctp_lavender"
         />
 
     <androidx.recyclerview.widget.RecyclerView

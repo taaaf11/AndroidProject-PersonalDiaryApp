@@ -46,7 +46,7 @@ class EntrysFragment : Fragment(), View.OnClickListener {
         binding?.rvEntrysList?.layoutManager = LinearLayoutManager(requireContext())
 
         // source: https://stackoverflow.com/a/57886251/19619895
-        binding?.rvEntrysList?.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
+//        binding?.rvEntrysList?.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
 
         // this is called when the view i.e. the cardView is clicked
         // this will be called inside the setOnClickListener of the cardView

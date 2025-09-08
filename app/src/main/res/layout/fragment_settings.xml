@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     android:id="@+id/rootLayoutFragmentSettings"
     tools:context=".SettingsFragment">
 
@@ -18,7 +17,7 @@
         app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentSettings"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentSettings"
-        app:tint="@color/primary" />
+        app:tint="@color/ctp_lavender" />
 
     <TextView
         android:id="@+id/tvHeadingFragmentSettings"
@@ -26,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Settings"
-        android:textColor="@color/primary"
         android:textSize="40sp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +40,6 @@
         android:layout_marginBottom="40dp"
         android:hint="Username"
 
-        android:textColor="@color/primary"
         app:layout_constraintBottom_toTopOf="@id/tvTransparentCenterHelperForEditTextsFragmentAdd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -56,7 +53,6 @@
         android:layout_marginTop="40dp"
         android:hint="Password"
 
-        android:textColor="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentAdd" />
@@ -67,10 +63,8 @@
         android:layout_height="wrap_content"
 
         android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/btnbackground"
         android:text="Set Credentials"
 
-        android:textColor="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

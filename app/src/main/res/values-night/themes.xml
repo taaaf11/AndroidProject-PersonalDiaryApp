@@ -1,7 +1,67 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.PersonalDiaryApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-    </style>
+<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
+<!--    <style name="Base.Theme.PersonalDiaryApp" parent="Theme.Material3.DayNight.NoActionBar">-->
+<!--        &lt;!&ndash; Customize your dark theme here. &ndash;&gt;-->
+<!--        &lt;!&ndash; <item name="colorPrimary">@color/my_dark_primary</item> &ndash;&gt;-->
+<!--    </style>-->
+
+        <style name="Base.Theme.PersonalDiaryApp" parent="Theme.Material3.DayNight.NoActionBar">
+            <!-- Base Colors -->
+            <item name="colorPrimary">@color/ctp_lavender</item>
+            <item name="colorOnPrimary">@color/ctp_crust</item>
+            <item name="colorSecondary">@color/ctp_blue</item>
+            <item name="colorOnSecondary">@color/ctp_crust</item>
+            <item name="colorTertiary">@color/ctp_pink</item>
+
+            <!-- Backgrounds -->
+            <item name="android:windowBackground">@color/ctp_base</item>
+            <item name="colorSurface">@color/ctp_surface0</item>
+            <item name="colorOnSurface">@color/ctp_text</item>
+
+            <!-- Text -->
+            <item name="android:textColorPrimary">@color/ctp_text</item>
+            <item name="android:textColorSecondary">@color/ctp_subtext0</item>
+
+            <!-- Buttons -->
+            <item name="materialButtonStyle">@style/Widget.PersonalDiary.Button</item>
+
+            <!-- EditText / TextInput -->
+            <item name="textInputStyle">@style/Widget.PersonalDiary.TextInputLayout</item>
+
+            <!-- Dialogs -->
+            <item name="alertDialogTheme">@style/ThemeOverlay.PersonalDiary.Dialog</item>
+
+            <!-- Popup Menu -->
+            <item name="popupMenuStyle">@style/Widget.PersonalDiary.PopupMenu</item>
+        </style>
+
+        <!-- Buttons -->
+        <style name="Widget.PersonalDiary.Button" parent="Widget.Material3.Button">
+            <item name="android:backgroundTint">@color/ctp_pink</item>
+            <item name="android:textColor">@color/ctp_crust</item>
+            <item name="cornerRadius">16dp</item>
+        </style>
+
+        <!-- TextInput -->
+        <style name="Widget.PersonalDiary.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+            <item name="boxBackgroundColor">@color/ctp_surface0</item>
+            <item name="hintTextColor">@color/ctp_subtext1</item>
+            <item name="boxStrokeColor">@color/ctp_lavender</item>
+            <item name="android:textColor">@color/ctp_text</item>
+        </style>
+
+        <!-- AlertDialog -->
+        <style name="ThemeOverlay.PersonalDiary.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+            <item name="android:background">@color/ctp_surface1</item>
+            <item name="android:textColor">@color/ctp_text</item>
+            <item name="android:buttonBarPositiveButtonStyle">@style/Widget.PersonalDiary.Button</item>
+            <item name="android:buttonBarNegativeButtonStyle">@style/Widget.PersonalDiary.Button</item>
+        </style>
+
+        <!-- PopupMenu -->
+        <style name="Widget.PersonalDiary.PopupMenu" parent="Widget.Material3.PopupMenu">
+            <item name="android:popupBackground">@color/ctp_surface1</item>
+            <item name="android:textColor">@color/ctp_text</item>
+        </style>
+
 </resources>

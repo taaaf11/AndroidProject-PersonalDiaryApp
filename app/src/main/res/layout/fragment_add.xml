@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toStartOf="@id/tvHeadingFragmentAdd"
         app:layout_constraintTop_toTopOf="@id/tvHeadingFragmentAdd"
         app:layout_constraintBottom_toBottomOf="@id/tvHeadingFragmentAdd"
-        app:tint="@color/primary"
+        app:tint="@color/ctp_lavender"
         />
 
 
@@ -27,7 +27,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Add Entry"
-        android:textColor="@color/primary"
         android:textSize="40sp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +40,6 @@
 
 
         android:hint="Title"
-        android:textColor="@color/primary"
 
         app:layout_constraintBottom_toTopOf="@id/tvTransparentCenterHelperForEditTextsFragmentAdd"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +52,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:textColor="@color/primary"
         android:text="Content"
         android:textSize="30sp"
 
@@ -70,7 +67,6 @@
         android:layout_height="wrap_content"
 
         android:hint="Content"
-        android:textColor="@color/primary"
         android:inputType="textMultiLine"
 
         app:layout_constraintTop_toBottomOf="@id/tvContentHeadingFragmentAdd"
@@ -94,8 +90,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
-        android:textColor="@color/primary"
-        android:backgroundTint="@color/btnbackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

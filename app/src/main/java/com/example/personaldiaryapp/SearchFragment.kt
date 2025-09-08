@@ -49,7 +49,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
         binding?.rvEntrysListFragmentSearch?.layoutManager = LinearLayoutManager(requireContext())
 
         // source: https://stackoverflow.com/a/57886251/19619895
-        binding?.rvEntrysListFragmentSearch?.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
+//        binding?.rvEntrysListFragmentSearch?.addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
 
         // give viewModel and value searching editText component
         // so that the list can be filtered when the search query
