@@ -57,7 +57,9 @@ class SettingsFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.ivBackButtonFragmentSettings -> {
-                findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToHomeFragment())
+                findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToHomeFragment(
+                    usernameInDb ?: ""
+                ))
             }
             R.id.btnSetCredentialsFragmentSettings -> {
                 val usernameValue = binding?.etUsernameFragmentSettings?.text.toString()
@@ -71,7 +73,9 @@ class SettingsFragment : Fragment(), View.OnClickListener {
                     viewModel?.setPassword(passwordValue)
                 }
 
-                findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToHomeFragment())
+                findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToHomeFragment(
+                    usernameValue
+                ))
             }
         }
     }

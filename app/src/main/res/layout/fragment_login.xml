@@ -6,84 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".LoginFragment">
 
-    <TextView
-        android:id="@+id/tvHeadingFragmentLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Login"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+
+        android:src="@drawable/diary_pic"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etUsername_fragment_login"
-        android:layout_width="180dp"
+    <include
+        android:id="@+id/includedCard"
+        layout="@layout/login_card"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-
-        android:hint="Username"
-
-        app:layout_constraintBottom_toTopOf="@id/tvTransparentCenterHelperForEditTextsFragmentAdd"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="40dp"
-        />
-
-    <EditText
-        android:id="@+id/etPassword_fragment_login"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-        android:hint="Password"
+    <!--    <TextView-->
+    <!--        android:id="@+id/tvTransparentCenterHelperForButtons_fragment_login"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text=""-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
 
-        app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentAdd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"
-        />
+    <!--        android:layout_marginBottom="20dp"-->
+    <!--        />-->
 
     <Button
-        android:id="@+id/btnLogin_fragment_login"
+        android:id="@+id/btnSignup_fragment_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Login"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="24dp"
 
+        android:backgroundTint="@color/ctp_lavender"
+        android:text="Signup"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="30dp"
-        />
-
-<!--    <Button-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-
-<!--        android:text="Signup"-->
-<!--        android:backgroundTint="@color/btnbackground"-->
-<!--        android:textColor="@color/primary"-->
-
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toEndOf="@id/tvTransparentCenterHelperForButtons_fragment_login"-->
-<!--        android:layout_marginBottom="20dp"-->
-<!--        android:layout_marginStart="30dp"-->
-<!--        />-->
-
-
-<!--    <TextView-->
-<!--        android:id="@+id/tvTransparentCenterHelperForButtons_fragment_login"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text=""-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-
-<!--        android:layout_marginBottom="20dp"-->
-<!--        />-->
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvTransparentCenterHelperForEditTextsFragmentAdd"
@@ -97,3 +65,56 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tvHeadingFragmentLogin"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:text="Login"-->
+    <!--        android:textSize="40sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/etUsername_fragment_login"-->
+    <!--        android:layout_width="180dp"-->
+    <!--        android:layout_height="wrap_content"-->
+
+    <!--        android:hint="Username"-->
+
+    <!--        app:layout_constraintBottom_toTopOf="@id/tvTransparentCenterHelperForEditTextsFragmentAdd"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        android:layout_marginBottom="40dp"-->
+    <!--        />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/etPassword_fragment_login"-->
+    <!--        android:layout_width="180dp"-->
+    <!--        android:layout_height="wrap_content"-->
+
+
+    <!--        android:hint="Password"-->
+
+    <!--        app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentAdd"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btnLogin_fragment_login"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+
+    <!--        android:text="Login"-->
+
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        android:layout_marginBottom="20dp"-->
+    <!--        android:layout_marginEnd="30dp"-->
+    <!--        />-->

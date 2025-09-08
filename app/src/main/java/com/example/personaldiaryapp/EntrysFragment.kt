@@ -1,6 +1,7 @@
 package com.example.personaldiaryapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -22,6 +23,7 @@ class EntrysFragment : Fragment(), View.OnClickListener {
     private var _binding: FragmentEntrysBinding? = null
     public val binding get() = _binding
     var viewModel: DiaryVM? = null
+    var usernameInDb: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,6 +74,10 @@ class EntrysFragment : Fragment(), View.OnClickListener {
         // which then rebuilds the recyclerView's list.
         viewModel?.readAllDiaryEntrys?.observe(viewLifecycleOwner) { notes ->
             adapter.setData(notes)
+        }
+
+        viewModel?.getUsername?.observe(viewLifecycleOwner) {
+            usernameInDb = it ?: ""
         }
     }
 
@@ -132,7 +138,9 @@ class EntrysFragment : Fragment(), View.OnClickListener {
         when (v?.id) {
             R.id.ivBackButtonFragmentEntrys -> {
                 findNavController().navigate(
-                    EntrysFragmentDirections.actionEntrysFragmentToHomeFragment()
+                    EntrysFragmentDirections.actionEntrysFragmentToHomeFragment(
+                        usernameInDb!!
+                    )
                 )
             }
             R.id.ivSearchButtonFragmentEntrys -> {

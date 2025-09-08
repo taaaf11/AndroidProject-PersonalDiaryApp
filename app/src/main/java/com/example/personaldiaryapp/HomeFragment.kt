@@ -8,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.personaldiaryapp.databinding.FragmentHomeBinding
 import com.example.personaldiaryapp.room.DiaryVM
 
 class HomeFragment : Fragment(), View.OnClickListener {
 
+    private val args: HomeFragmentArgs by navArgs()
     private var _binding: FragmentHomeBinding? = null
     public val binding get() = _binding
     var viewModel: DiaryVM? = null
@@ -36,6 +38,12 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initialize() {
+        if (args.name.isNotEmpty()) {
+            binding?.tvWelcomeTextFragmentHome?.text = "Welcome ${args.name}!"
+        }
+        else {
+            binding?.tvWelcomeTextFragmentHome?.text = "Welcome!"
+        }
     }
 
     private fun registerClicks() {
