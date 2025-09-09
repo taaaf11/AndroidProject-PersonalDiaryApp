@@ -38,17 +38,22 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initialize() {
+        var welcomeText = ""
         if (args.name.isNotEmpty()) {
-            binding?.tvWelcomeTextFragmentHome?.text = "Welcome ${args.name}!"
+            welcomeText = "Welcome ${args.name}!"
         }
         else {
-            binding?.tvWelcomeTextFragmentHome?.text = "Welcome!"
+            welcomeText = "Welcome!"
         }
+
+        welcomeText += "\nWhat do you want to do?"
+        binding?.tvWelcomeTextFragmentHome?.text = welcomeText
     }
 
     private fun registerClicks() {
         binding?.btnCheckEntriesFragmentHome?.setOnClickListener(this)
         binding?.btnSettingsFragmentHome?.setOnClickListener(this)
+        binding?.btnAddEntryFragmentHome?.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -58,6 +63,11 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
             R.id.btnSettingsFragmentHome -> {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSettingsFragment())
+            }
+            R.id.btnAddEntryFragmentHome -> {
+                findNavController().navigate(
+                    HomeFragmentDirections.actionHomeFragmentToAddFragment()
+                )
             }
         }
     }

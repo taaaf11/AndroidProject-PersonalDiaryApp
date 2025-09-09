@@ -120,7 +120,7 @@ class SearchFragment : Fragment(), View.OnClickListener {
             when (item!!.itemId) {
                 R.id.menuitemEditCardViewPopMenu -> {
                     findNavController().navigate(
-                        EntrysFragmentDirections.actionEntrysFragmentToEditFragment(entry)
+                        EntrysFragmentDirections.actionEntrysFragmentToEditFragment(entry, 0)
                     )
                 }
 

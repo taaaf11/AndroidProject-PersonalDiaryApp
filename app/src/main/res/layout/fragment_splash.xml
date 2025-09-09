@@ -28,7 +28,7 @@
         android:layout_height="150dp"
         android:layout_marginBottom="4dp"
         android:contentDescription="App Logo"
-        android:src="@drawable/logo"
+        android:src="@drawable/diary_icon"
         app:layout_constraintBottom_toTopOf="@id/tvTransparentCenterHelperForEditTextsFragmentSplash"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -41,7 +41,7 @@
         android:text="Your Personal Diary"
         android:fontFamily="@font/comfortaa"
         android:textStyle="bold"
-        android:textSize="28sp"
+        android:textSize="22sp"
         android:textColor="@color/ctp_lavender"
         app:layout_constraintTop_toBottomOf="@id/tvTransparentCenterHelperForEditTextsFragmentSplash"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
     <!-- Primary Button -->
     <Button
         android:id="@+id/btnGoFragmentSplash"
-        android:layout_width="0dp"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:text="Get Started"
         android:fontFamily="@font/comfortaa"
@@ -69,13 +69,13 @@
     <!-- Secondary Button -->
     <Button
         android:id="@+id/btnGoToAboutFragmentSplash"
-        android:layout_width="0dp"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
         android:text="About"
         android:fontFamily="@font/comfortaa"
         android:textStyle="bold"
         android:textColor="@color/ctp_base"
-        android:backgroundTint="@color/ctp_overlay1"
+        android:backgroundTint="@color/ctp_lavender"
         android:layout_marginTop="12dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"

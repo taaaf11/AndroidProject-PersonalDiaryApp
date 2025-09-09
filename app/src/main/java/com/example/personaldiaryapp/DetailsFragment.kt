@@ -44,12 +44,20 @@ class DetailsFragment : Fragment(), View.OnClickListener {
 
     private fun registerClicks() {
         binding?.ivBackButtonFragmentDetails?.setOnClickListener(this)
+        binding?.ivEditButtonFragmentDetails?.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.ivBackButtonFragmentDetails -> {
                 findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToEntrysFragment())
+            }
+            R.id.ivEditButton_fragment_details -> {
+                findNavController().navigate(
+                    DetailsFragmentDirections.actionDetailsFragmentToEditFragment(
+                        args.entryInstance, 1
+                    )
+                )
             }
         }
     }

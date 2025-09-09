@@ -50,7 +50,14 @@ class EditFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.ivBackButtonFragmentEdit -> {
-                findNavController().navigate(EditFragmentDirections.actionEditFragmentToEntrysFragment())
+                if (args.fromDetails == 1) {
+                    findNavController().navigate(
+                        EditFragmentDirections.actionEditFragmentToDetailsFragment(args.entryInstance)
+                    )
+                }
+                else {
+                    findNavController().navigate(EditFragmentDirections.actionEditFragmentToEntrysFragment())
+                }
             }
             R.id.btnUpdateEntryFragmentEdit -> {
                 val titleValue = binding?.etTitleFragmentEdit?.text.toString()
