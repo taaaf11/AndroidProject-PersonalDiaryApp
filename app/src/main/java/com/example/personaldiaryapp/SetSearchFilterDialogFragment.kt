@@ -38,23 +38,23 @@ class SetSearchFilterDialogFragment : DialogFragment() {
             // mujhe styles.xml men alertdialog title ko customize karna nai a raha tha
             // to mene stackoverflow ka ye answer use kia
             // source: https://stackoverflow.com/a/51380246/19619895
-            val textView = TextView(context)
-            textView.text = "Apply filters"
-            textView.setPadding(40, 30, 20, 10)
-            textView.textSize = 16f
-            textView.setTextColor(resources.getColor(R.color.primary))
+//            val textView = TextView(context)
+//            textView.text = "Apply filters"
+//            textView.setPadding(40, 30, 20, 10)
+//            textView.textSize = 16f
+//            textView.setTextColor(resources.getColor(R.color.primary))
 
             // ye line chatgpt se hai, kionke mene title ko bold bhi
             // karna tha. mene official reference parha, jis men
             // textStyle wali xml property ke sath ye function given tha
             // mene is function ko use karnay ke lie chatgpt se pucha,
             // phir us ne ye code dia
-            textView.setTypeface(null, Typeface.BOLD)     // Bold
+//            textView.setTypeface(null, Typeface.BOLD)     // Bold
 
-//          builder.setMessage("Apply filters")
+          builder.setMessage("Apply filters")
 
             // jo textView abhi create kia tha, us
-            builder.setCustomTitle(textView)
+//            builder.setCustomTitle(textView)
                 .setPositiveButton("Apply") { dialog, id ->
                     val etTitleQuery = dialogView?.findViewById<EditText>(R.id.etTitleValue_layout_search_filter_dialog)
                     val etContentQuery = dialogView?.findViewById<EditText>(R.id.etContentValue_layout_search_filter_dialog)
@@ -75,12 +75,16 @@ class SetSearchFilterDialogFragment : DialogFragment() {
     // source: https://stackoverflow.com/a/27913325/19619895
     override fun onStart() {
         super.onStart()
-        (dialog as AlertDialog?)!!.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(
-            resources.getColor(R.color.primary)
-        )
-        (dialog as AlertDialog?)!!.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(
-            resources.getColor(R.color.primary)
-        )
+        val theDialog = (dialog as AlertDialog?)!!
+        theDialog.getButton(AlertDialog.BUTTON_POSITIVE).let {
+            it.setTextColor(resources.getColor(R.color.ctp_pink))
+//            it.setBackgroundColor(resources.getColor(R.color.ctp_pink))
+        }
+
+        theDialog.getButton(AlertDialog.BUTTON_NEUTRAL).let {
+            it.setTextColor(resources.getColor(R.color.ctp_pink))
+//            it.setBackgroundColor(resources.getColor(R.color.ctp_pink))
+        }
     }
 }
 //

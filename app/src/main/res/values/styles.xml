@@ -8,13 +8,14 @@
         <item name="android:textColor">@color/ctp_text</item>
     </style>
 
-    <!--  For apply-filters alert-dialog  -->
-    <!--  Source: https://stackoverflow.com/a/78558947/19619895  -->
-    <style name="ApplyFiltersDialogStyle" parent="Theme.MaterialComponents.DayNight.Dialog.Alert" >
-        <!--  This line sets the colors of "borders" of alert dialog "window"  -->
-        <item name="android:background">@color/background</item>
 
-    </style>
+
+    <!--    <style name="ApplyFiltersDialogStyle" parent="Theme.MaterialComponents.DayNight.Dialog.Alert" >-->
+<!--        &lt;!&ndash;  This line sets the colors of "borders" of alert dialog "window"  &ndash;&gt;-->
+<!--        <item name="android:background">@color/ctp_base</item>-->
+<!--        <item name=-->
+
+<!--    </style>-->
 
 
 

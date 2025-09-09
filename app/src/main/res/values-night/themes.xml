@@ -63,5 +63,28 @@
             <item name="android:popupBackground">@color/ctp_surface1</item>
             <item name="android:textColor">@color/ctp_text</item>
         </style>
+    <!--  For apply-filters alert-dialog  -->
+    <!--  Source: https://stackoverflow.com/a/78558947/19619895  -->
+    <style name="ApplyFiltersDialogStyle" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <!-- Dialog background -->
+        <item name="android:background">@color/ctp_base</item>
+
+        <!-- Positive Button Style -->
+        <item name="buttonBarPositiveButtonStyle">@style/DialogPositiveButton</item>
+        <!-- Neutral Button Style -->
+        <item name="buttonBarNeutralButtonStyle">@style/DialogNeutralButton</item>
+    </style>
+
+    <!-- Positive Button -->
+    <style name="DialogPositiveButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="backgroundTint">@color/ctp_pink</item>
+        <item name="android:textColor">@color/ctp_crust</item>
+    </style>
+
+    <!-- Neutral Button -->
+    <style name="DialogNeutralButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="backgroundTint">@color/ctp_pink</item>
+        <item name="android:textColor">@color/ctp_crust</item>
+    </style>
 
 </resources>
