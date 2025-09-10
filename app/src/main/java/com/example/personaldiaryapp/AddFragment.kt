@@ -1,5 +1,6 @@
 package com.example.personaldiaryapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -50,6 +51,26 @@ class AddFragment : Fragment(), View.OnClickListener {
     private fun registerClicks() {
         binding?.ivBackButtonFragmentAdd?.setOnClickListener(this)
         binding?.btnAddEntryFragmentAdd?.setOnClickListener(this)
+        binding?.includedCard?.tvbtnBoldFragmentEdit?.setOnClickListener {
+
+            val theEditText = binding?.etContentFragmentAdd!!
+            if (!(theEditText.isFocused)) {
+                // This EditText has focus (cursor should be here)
+                return@setOnClickListener
+            }
+            theEditText.setText(theEditText.text.toString() + "****")
+            theEditText.setSelection((theEditText.text?.length ?: 2) - 2)
+        }
+        binding?.includedCard?.tvbtnItalicFragmentEdit?.setOnClickListener {
+
+            val theEditText = binding?.etContentFragmentAdd!!
+            if (!(theEditText.isFocused)) {
+                // This EditText has focus (cursor should be here)
+                return@setOnClickListener
+            }
+            theEditText.setText(theEditText.text.toString() + "__")
+            theEditText.setSelection(theEditText.text?.length ?: 1 - 1)
+        }
     }
 
     override fun onClick(v: View?) {
