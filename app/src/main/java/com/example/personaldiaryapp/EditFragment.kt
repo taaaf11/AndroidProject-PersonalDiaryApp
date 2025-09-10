@@ -45,12 +45,16 @@ class EditFragment : Fragment(), View.OnClickListener {
     private fun registerClicks() {
         binding?.ivBackButtonFragmentEdit?.setOnClickListener(this)
         binding?.btnUpdateEntryFragmentEdit?.setOnClickListener(this)
-//        binding?.includedCard?.tvbtnBoldFragmentEdit?.setOnClickListener {
-//            binding?.etContentFragmentEdit?.text =
-//        }
-//        binding?.includedCard?.tvbtnItalicFragmentEdit?.setOnClickListener {
-//
-//        }
+        binding?.includedCard?.tvbtnBoldFragmentEdit?.setOnClickListener {
+            val theEditText = binding?.etContentFragmentEdit!!
+            theEditText.setText(theEditText.text.toString() + "****")
+            theEditText.setSelection(theEditText.text.length - 2)
+        }
+        binding?.includedCard?.tvbtnItalicFragmentEdit?.setOnClickListener {
+            val theEditText = binding?.etContentFragmentEdit!!
+            theEditText.setText(theEditText.text.toString() + "__")
+            theEditText.setSelection(theEditText.text.length - 1)
+        }
     }
 
     override fun onClick(v: View?) {
