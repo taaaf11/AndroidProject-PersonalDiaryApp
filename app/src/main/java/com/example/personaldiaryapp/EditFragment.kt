@@ -45,6 +45,12 @@ class EditFragment : Fragment(), View.OnClickListener {
     private fun registerClicks() {
         binding?.ivBackButtonFragmentEdit?.setOnClickListener(this)
         binding?.btnUpdateEntryFragmentEdit?.setOnClickListener(this)
+//        binding?.includedCard?.tvbtnBoldFragmentEdit?.setOnClickListener {
+//            binding?.etContentFragmentEdit?.text =
+//        }
+//        binding?.includedCard?.tvbtnItalicFragmentEdit?.setOnClickListener {
+//
+//        }
     }
 
     override fun onClick(v: View?) {

@@ -66,7 +66,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
             R.id.btnAddEntryFragmentHome -> {
                 findNavController().navigate(
-                    HomeFragmentDirections.actionHomeFragmentToAddFragment()
+                    HomeFragmentDirections.actionHomeFragmentToAddFragment(1)
                 )
             }
         }

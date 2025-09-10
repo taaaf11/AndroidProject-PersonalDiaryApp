@@ -160,7 +160,7 @@ class EntrysFragment : Fragment(), View.OnClickListener {
             }
             R.id.btnAddEntry_fragment_entrys -> {
                 findNavController().navigate(
-                    EntrysFragmentDirections.actionEntrysFragmentToAddFragment()
+                    EntrysFragmentDirections.actionEntrysFragmentToAddFragment(0)
                 )
             }
         }

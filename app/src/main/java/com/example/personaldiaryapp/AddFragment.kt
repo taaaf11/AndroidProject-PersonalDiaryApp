@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.personaldiaryapp.databinding.FragmentAddBinding
 import com.example.personaldiaryapp.room.DiaryEntry
 import com.example.personaldiaryapp.room.DiaryVM
@@ -17,9 +18,11 @@ import java.time.ZoneId
 
 class AddFragment : Fragment(), View.OnClickListener {
 
+    private val args: AddFragmentArgs by navArgs()
     private var _binding: FragmentAddBinding? = null
     public val binding get() = _binding
     var viewModel: DiaryVM? = null
+    var usernameInDb: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +41,11 @@ class AddFragment : Fragment(), View.OnClickListener {
         registerClicks()
     }
 
-    private fun initialize() {}
+    private fun initialize() {
+        viewModel?.getUsername?.observe(viewLifecycleOwner) {
+            usernameInDb = it ?: ""
+        }
+    }
 
     private fun registerClicks() {
         binding?.ivBackButtonFragmentAdd?.setOnClickListener(this)
@@ -48,9 +55,15 @@ class AddFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.ivBackButtonFragmentAdd -> {
-                findNavController().navigate(AddFragmentDirections.actionAddFragmentToEntrysFragment())
+                if (args.fromHome == 1) {
+                    findNavController().navigate(AddFragmentDirections.actionAddFragmentToHomeFragment(usernameInDb!!))
+                }
+                else {
+                    findNavController().navigate(AddFragmentDirections.actionAddFragmentToEntrysFragment())
+                }
             }
             R.id.btnAddEntryFragmentAdd -> {
+
                 val titleValue = binding?.etTitleFragmentAdd?.text.toString()
                 val contentValue = binding?.etContentFragmentAdd?.text.toString()
 
