@@ -25,6 +25,7 @@ data class DiaryEntry(
     var title: String,
     var content: String,
     var dateCreated: Date = Date()
+//    var timeForNotification: Date? = null
 ): Parcelable
 
 

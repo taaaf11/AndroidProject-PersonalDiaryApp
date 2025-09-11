@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -37,9 +38,49 @@ class EditFragment : Fragment(), View.OnClickListener {
         registerClicks()
     }
 
+
+//    fun fillSpinnerValues() {
+//        val spinnerHours = binding?.timeGetterCard?.spinnerHours
+//        val spinnerMinutes = binding?.timeGetterCard?.spinnerMinutes
+//
+//        val hours = (0..23).map { String.format("%02d", it) }
+//        val minutes = (0..59).map { String.format("%02d", it) }
+//
+//        spinnerHours?.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, hours)
+//        spinnerMinutes?.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, minutes)
+//    }
+
+    fun setContainerEnabled(container: ViewGroup, enabled: Boolean) {
+        container.isEnabled = enabled
+        container.alpha = if (enabled) 1f else 0.5f
+
+        for (i in 0 until container.childCount) {
+            val child = container.getChildAt(i)
+            child.isEnabled = enabled
+
+            // If the child is a ViewGroup, recursively disable its children
+            if (child is ViewGroup) {
+                setContainerEnabled(child, enabled)
+            }
+        }
+    }
+
     private fun initialize() {
         binding?.etTitleFragmentEdit?.setText( args.entryInstance.title)
         binding?.etContentFragmentEdit?.setText(args.entryInstance.content)
+
+//        fillSpinnerValues()
+
+//        val cbSchedule = binding?.timeGetterCard?.cbScheduleNotification
+//        val datetimeContainer = binding?.timeGetterCard?.dateTimeContainer
+//
+//        setContainerEnabled(datetimeContainer as ViewGroup, false)
+//
+//        // Checkbox toggle
+//        cbSchedule?.setOnCheckedChangeListener { _, isChecked ->
+//            setContainerEnabled(datetimeContainer as ViewGroup, isChecked)
+//            datetimeContainer.alpha = if (isChecked) 1f else 0.5f
+//        }
     }
 
     private fun registerClicks() {

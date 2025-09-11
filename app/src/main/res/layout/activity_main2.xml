@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/ctp_base"
+    tools:context=".DetailsFragment">
+
+<!--    &lt;!&ndash; Back Button &ndash;&gt;-->
+<!--    <ImageView-->
+<!--        android:id="@+id/ivBackButtonActivity2"-->
+<!--        android:layout_width="35dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        android:src="@drawable/back_button"-->
+<!--        app:tint="@color/ctp_lavender"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:contentDescription="Back" />-->
+    
+    
+    <TextView
+        android:id="@+id/tvHeadingActivity2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/comfortaa"
+        android:textColor="@color/ctp_lavender"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp" />
+
+
+
+    <!--    &lt;!&ndash; Back Button &ndash;&gt;-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/ivBackButtonActivity2"-->
+    <!--        android:layout_width="35dp"-->
+    <!--        android:layout_height="35dp"-->
+    <!--        android:src="@drawable/back_button"-->
+    <!--        android:contentDescription="Back"-->
+    <!--        app:tint="@color/ctp_lavender"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    &lt;!&ndash; Heading &ndash;&gt;-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/tvHeadingActivity2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Details"-->
+    <!--        android:textSize="34sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        android:textColor="@color/ctp_lavender"-->
+    <!--        app:layout_constraintStart_toEndOf="@id/ivBackButtonActivity2"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/ivBackButtonActivity2"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/ivBackButtonActivity2"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+    <!-- Card for Title + Content -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvEntryDetails"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@color/ctp_surface0"
+        app:layout_constraintTop_toBottomOf="@id/tvHeadingActivity2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvTitleValueActivity2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:fontFamily="@font/comfortaa"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="@color/ctp_sky"
+                android:gravity="center"
+                android:lineSpacingMultiplier="1.1"
+                android:paddingBottom="12dp" />
+
+            <!-- Scrollable Content -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fadeScrollbars="false">
+
+                <TextView
+                    android:id="@+id/tvContentValueActivity2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Content"
+                    android:fontFamily="@font/comfortaa"
+                    android:textSize="17sp"
+                    android:textColor="@color/ctp_text"
+                    android:lineSpacingMultiplier="1.3"
+                    android:padding="8dp" />
+            </ScrollView>
+            
+        </LinearLayout>
+
+        
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    tools:context=".DetailsFragment">-->
+
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/ivBackButtonActivity2"-->
+    <!--        android:layout_width="35dp"-->
+    <!--        android:layout_height="35dp"-->
+
+    <!--        android:src="@drawable/back_button"-->
+
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toStartOf="@id/tvHeadingActivity2"-->
+    <!--        app:layout_constraintTop_toTopOf="@id/tvHeadingActivity2"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/tvHeadingActivity2"-->
+    <!--        app:tint="@color/ctp_lavender"-->
+    <!--        />-->
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tvHeadingActivity2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:text="Details"-->
+    <!--        android:textSize="40sp"-->
+
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tvTitleValueActivity2"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+
+    <!--        android:text="Title"-->
+    <!--        android:fontFamily="@font/comfortaa"-->
+    <!--        android:textStyle="bold"-->
+    <!--        android:textSize="24sp"-->
+    <!--        android:lineSpacingMultiplier="1.1"-->
+    <!--        android:lineSpacingExtra="0dp"-->
+    <!--        android:gravity="center"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tvHeadingActivity2"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/tvHeadingActivity2"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/tvHeadingActivity2"-->
+    <!--        android:layout_marginTop="60dp"-->
+    <!--        android:padding="10dp"-->
+    <!--        android:layout_marginStart="60dp"-->
+    <!--        android:layout_marginEnd="60dp"-->
+
+    <!--        />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tvContentValueActivity2"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+
+    <!--        android:text="Content"-->
+    <!--        android:fontFamily="@font/comfortaa"-->
+    <!--        android:textSize="16.8sp"-->
+    <!--        android:lineSpacingMultiplier="1.3"-->
+    <!--        android:lineSpacingExtra="0dp"-->
+    <!--        android:gravity="center"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tvTitleValueActivity2"-->
+    <!--        app:layout_constraintStart_toStartOf="@id/tvHeadingActivity2"-->
+    <!--        app:layout_constraintEnd_toEndOf="@id/tvHeadingActivity2"-->
+    <!--        android:layout_margin="40dp"-->
+    <!--        />-->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->

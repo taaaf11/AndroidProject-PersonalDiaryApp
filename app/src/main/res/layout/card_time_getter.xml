@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="6dp"
+    android:background="@color/ctp_base">
+
+    <!-- Checkbox to enable scheduling -->
+    <CheckBox
+        android:id="@+id/cbScheduleNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Schedule Notification"
+        android:textColor="@color/ctp_text"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/comfortaa"/>
+
+    <!-- Container for date & time fields -->
+    <LinearLayout
+        android:id="@+id/dateTimeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:enabled="false"
+        android:alpha="0.5">
+
+        <!-- Date row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="15dp"
+                android:hint="DD"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ctp_text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="15dp"
+                android:hint="MM"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ctp_text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Optional Year field -->
+            <!--
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="YYYY"
+                app:hintTextAppearance="@style/CustomHintText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ctp_text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="15dp"
+                android:hint="Hours"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etHours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ctp_text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="15dp"
+                android:hint="Minutes"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMins"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ctp_text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+                        <Spinner
+                            android:id="@+id/spinnerAmPm"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:spinnerMode="dropdown" />
+
+            <!-- Optional Year field -->
+            <!--
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="YYYY"
+                app:hintTextAppearance="@style/CustomHintText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textColor="@color/ctp_text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            -->
+
+        </LinearLayout>
+
+<!--        &lt;!&ndash; Time row &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginTop="12dp">-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerHours"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:spinnerMode="dropdown" />-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerMinutes"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:spinnerMode="dropdown" />-->
+<!--        </LinearLayout>-->
+    </LinearLayout>
+</LinearLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:orientation="vertical"-->
+<!--    android:padding="6dp"-->
+<!--    android:background="@color/ctp_base">-->
+
+<!--    &lt;!&ndash; Date row &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center">-->
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:hint="DD">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/etDay"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="number"-->
+<!--                android:textColor="@color/ctp_text"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:hint="MM"-->
+<!--            >-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/etMonth"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="number"-->
+<!--                android:textColor="@color/ctp_text"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--&lt;!&ndash;        <com.google.android.material.textfield.TextInputLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:hint="YYYY">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <com.google.android.material.textfield.TextInputEditText&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/etYear"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:inputType="number"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textColor="@color/ctp_text"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </com.google.android.material.textfield.TextInputLayout>&ndash;&gt;-->
+
+<!--    </LinearLayout>-->
+
+<!--    &lt;!&ndash; Time row &ndash;&gt;-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_marginTop="12dp">-->
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spinnerHours"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:spinnerMode="dropdown" />-->
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spinnerMinutes"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:spinnerMode="dropdown" />-->
+<!--    </LinearLayout>-->
+<!--</LinearLayout>-->

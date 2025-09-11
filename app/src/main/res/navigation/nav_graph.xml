@@ -16,6 +16,10 @@
         <action
             android:id="@+id/action_splashFragment_to_aboutFragment"
             app:destination="@id/aboutFragment" />
+<!--        <argument-->
+<!--            android:name="entryInstance"-->
+<!--            app:argType="com.example.personaldiaryapp.DiaryEntry"-->
+<!--            />-->
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

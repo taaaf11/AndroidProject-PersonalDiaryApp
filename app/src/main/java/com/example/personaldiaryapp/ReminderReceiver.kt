@@ -6,16 +6,23 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.example.personaldiaryapp.room.DiaryEntry
 
 class ReminderReceiver : BroadcastReceiver() {
+
     override fun onReceive(context: Context, intent: Intent?) {
         val title = intent?.getStringExtra("title") ?: "Reminder"
         val message = intent?.getStringExtra("message") ?: "It's time to check your app!"
+//        val entry = intent?.getParcelableExtra("entry") as DiaryEntry?
 
-        val i = Intent(context, MainActivity::class.java)
+        val i = Intent(context, MainActivity::class.java).apply {
+            putExtra("entry", intent?.getParcelableExtra("entry") as DiaryEntry?)
+        }
         val pendingIntent = PendingIntent.getActivity(
             context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
